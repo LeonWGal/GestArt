@@ -1,7 +1,7 @@
 
 
 <div align="center">
-# 🎨 GestArt
+### 🎨 GestArt
 
 **A powerful PyQt6-based image viewer with timer functionality for gesture drawing practice, reference study, and casual image browsing**
 
