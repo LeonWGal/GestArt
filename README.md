@@ -4,6 +4,12 @@
 
 **A powerful PyQt6-based image viewer with timer functionality for gesture drawing practice, reference study, and casual image browsing**
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/yourusername/gestart)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?logo=twitter)](https://twitter.com/yourusername)
+[![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/yourusername)
+[![Discord](https://img.shields.io/badge/Discord-Join-purple?logo=discord)](https://discord.gg/yourusername)
+[![Patreon](https://img.shields.io/badge/Patreon-Support-orange?logo=patreon)](https://patreon.com/yourusername)
+
 [![Version](https://img.shields.io/badge/version-0.9.8-blue.svg)](https://github.com/yourusername/gestart/releases)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://python.org)
 [![PyQt6](https://img.shields.io/badge/PyQt6-6.4+-orange.svg)](https://pypi.org/project/PyQt6/)
@@ -225,7 +231,8 @@ gestart/
 
 **Made with ❤️ for artists worldwide**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/yourusername/gestart)
+
+
 [![Issues](https://img.shields.io/badge/Issues-Report%20Bug-red?logo=github)](https://github.com/yourusername/gestart/issues)
 [![Pull Requests](https://img.shields.io/badge/PRs-Welcome-green?logo=github)](https://github.com/yourusername/gestart/pulls)
 [![Stars](https://img.shields.io/badge/Stars-⭐-yellow?logo=github)](https://github.com/yourusername/gestart/stargazers)
