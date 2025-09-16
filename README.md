@@ -1,7 +1,6 @@
-### 🎨 GestArt
+# 🎨 GestArt
 
 <div align="center">
-
 
 **A powerful PyQt6-based image viewer with timer functionality for gesture drawing practice, reference study, and casual image browsing**
 
@@ -13,8 +12,8 @@
 
 [English](README.md) • [Русский](README.ru.md)
 
-#### 🌟 Major Languages
-**English**, **Русский**, 日本語 (Japanese), 中文 简体 (Chinese Simplified), 中文 繁體 (Chinese Traditional), العربية (Arabic), Español (Spanish), Français (French), Deutsch (German), Italiano (Italian), Português (Portuguese), 한국어 (Korean), हिन्दी (Hindi), বাংলা (Bengali), Türkçe (Turkish), Polski (Polish), Українська (Ukrainian), Nederlands (Dutch), Svenska (Swedish), Norsk (Norwegian), Dansk (Danish), Suomi (Finnish), Čeština (Czech), Slovenčina (Slovak), Magyar (Hungarian), Română (Romanian), Български (Bulgarian), Hrvatski (Croatian), Српски (Serbian), Slovenščina (Slovenian), Lietuvių (Lithuanian), Latviešu (Latvian), Eesti (Estonian), Ελληνικά (Greek), עברית (Hebrew), فارسی (Persian), اردو (Urdu), ไทย (Thai), Tiếng Việt (Vietnamese), Bahasa Indonesia (Indonesian), Bahasa Melayu (Malay), Tagalog (Filipino), Kiswahili (Swahili), Hausa, Yorùbá (Yoruba), IsiZulu (Zulu), አማርኛ (Amharic), Afaan Oromoo (Oromo), Igbo, Fulfulde, Malagasy, ລາວ (Lao), ខ្មែរ (Khmer), සිංහල (Sinhala), Монгол (Mongolian), ქართული (Georgian), Հայերեն (Armenian), Azərbaycan (Azerbaijani), Қазақша (Kazakh), Кыргызча (Kyrgyz), O'zbekcha (Uzbek), Тоҷикӣ (Tajik), Türkmen (Turkmen), Татарча (Tatar), Башҡортса (Bashkir), Чӑваш чӗлхи (Chuvash), Удмурт кыл (Udmurt), Марий йылме (Mari), Мокшень кяль (Moksha), Эрзянь кель (Erzya), Коми кыв (Komi), Нохчийн мотт (Chechen), Авар мацӏ (Avar), Адыгэбзэ (Kabardian), Лезги чӏал (Lezgi), Дарган мез (Dargwa), Ирон ӕвзаг (Ossetian), Буряад хэлэн (Buryat), Саха тыла (Yakut), Sindarin, Esperanto, and many more.
+#### 🌟 Complete Language List (100 Languages)
+**English**, **Русский**, Afrikaans, አማርኛ, العربية, Авар мацӏ, Azərbaycan, Башҡортса, Беларуская, Български, বাংলা, Буряад хэлэн, Català, Нохчийн мотт, Чӑваш чӗлхи, Čeština, Dansk, Дарган мез, Deutsch, Ελληνικά, Esperanto, Español, Eesti, فارسی, Fulfulde, Suomi, Français, ગુજરાતી, Hausa, עברית, हिन्दी, Hrvatski, Kreyòl ayisyen, Magyar, Հայերեն, Bahasa Indonesia, Igbo, Italiano, 日本語, Basa Jawa, ქართული, Адыгэбзэ, Қазақша, ខ្មែរ, ಕನ್ನಡ, 한국어, Къарачай тил, Къумукъ тил, Коми кыв, Кыргызча, Лезги чӏал, ລາວ, Lietuvių, Latviešu, Мокшень кяль, Malagasy, Марий йылме, മലയാളം, Монгол, मराठी, Bahasa Melayu, မြန်မာ, Эрзянь кель, नेपाली, Nederlands, Norsk, Afaan Oromoo, Ирон ӕвзаг, ਪੰਜਾਬੀ, Polski, Português, Português (Brasil), Runa Simi, Română, Саха тыла, සිංහල, Sindarin, Slovenčina, Slovenščina, Shqip, Српски, Svenska, Kiswahili, தமிழ், తెలుగు, ไทย, Türkmen, Tagalog, Türkçe, Татарча, Тоҷикӣ, Удмурт кыл, Українська, اردو, O'zbekcha, Tiếng Việt, Yorùbá, 中文 (简体), 中文 (繁體), IsiZulu
 
 </div>
 
@@ -161,14 +160,6 @@ All settings and data are stored in the `~/.gestart/` folder:
 - **Break mode**: Configurable session breaks
 - **System theme detection**: Automatic theme adaptation
 - **Folder statistics tracking**: Detailed usage analytics
-
-### Language Selection
-
-To change the interface language:
-1. Open Settings (Ctrl+,)
-2. Find "Interface language" section
-3. Select your preferred language from the dropdown menu
-4. The interface will update immediately
 
 ## 🎨 About GestArt
 
