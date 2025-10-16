@@ -12,7 +12,7 @@
 
 🌍 GestArt supports **100 languages**: **English**, **Русский**, Afrikaans, አማርኛ, العربية, Авар мацӏ, Azərbaycan, Башҡортса, Беларуская, Български, বাংলা, Буряад хэлэн, Català, Нохчийн мотт, Чӑваш чӗлхи, Čeština, Dansk, Deutsch, Ελληνικά, Español, Eesti, فارسی, Fulfulde, Suomi, Français, ગુજરાતી, Hausa, עברית, हिन्दी, Hrvatski, Kreyòl ayisyen, Magyar, Հայերեն, Bahasa Indonesia, Igbo, Íslenska, Italiano, 日本語, Basa Jawa, ქართული, Адыгэбзэ, Қазақша, ខ្មែរ, ಕನ್ನಡ, 한국어, Къарачай тил, Kurdî, Къумукъ тил, Кыргызча, Лезги чӏал, ລາວ, Lietuvių, Latviešu, Malagasy, Марий йылме, മലയാളം, Монгол, मराठी, Bahasa Melayu, မြန်မာ, नेपाली, Nederlands, Norsk, Afaan Oromoo, Ирон ӕвзаг, ਪੰਜਾਬੀ, Polski, Português, Português (Brasil), پښتو, Runa Simi, Română, Саха тыла, සිංහල, Slovenčina, Slovenščina, Shqip, Српски, Soomaali, Basa Sunda, Svenska, Kiswahili, தமிழ், తెలుగు, ไทย, Türkmen, Tagalog, Türkçe, Татарча, Тоҷикӣ, Удмурт кыл, Uyghur, Українська, اردو, O'zbekcha, Tiếng Việt, Yorùbá, 中文 (简体), 中文 (繁體), IsiZulu
 
-<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
+<img width="1200" height="800" alt="GestArt Interface" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
 
 ## 🎨 About GestArt
 
@@ -20,9 +20,12 @@
 
 **GestArt** is designed specifically for artists to practice gesture drawing, study reference poses, and browse image collections with precision timing.
 
-### 💡 The Story Behind GestArt
+<details>
+<summary><b>💡 The Story Behind GestArt</b></summary>
 
 For years, I used another program for gesture drawing practice but was dissatisfied with its limitations. As someone who doesn't code, I spent months working with AI to bring this vision to life. After many iterations and challenges, we've created a robust, feature-rich application that's now completely open-source and free for everyone to use, modify, and distribute.
+
+</details>
 
 ### 🌟 Connect with the Creator
 
@@ -31,11 +34,14 @@ For years, I used another program for gesture drawing practice but was dissatisf
 [![Telegram](https://img.shields.io/badge/Telegram-@LeonWGal-blue?logo=telegram)](https://t.me/LeonWGal)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-purple?logo=discord)](https://discord.gg/yHrQBTUaGr)
 [![Patreon](https://img.shields.io/badge/Patreon-Support%20Me-orange?logo=patreon)](https://patreon.com/LeonWGal)
+
 </div>
 
 ## ✨ Features
 
-### 🎯 Core Functionality
+<details>
+<summary><b>🎯 Core Functionality</b></summary>
+
 - ⏱️ **Customizable timer** for image display (1-900 seconds, unlimited mode)
 - 🖼️ **Multiple image formats** (PNG, JPG, JPEG, BMP, GIF, WEBP, TIFF, ICO, SVG, HEIC, HEIF)
 - 📁 **Recursive folder scanning** with progress indication
@@ -44,7 +50,11 @@ For years, I used another program for gesture drawing practice but was dissatisf
 - 🔍 **Image zoom and pan** with mouse/keyboard control
 - 🌐 **100 languages support** with complete interface translations
 
-### ⚙️ Advanced Features
+</details>
+
+<details>
+<summary><b>⚙️ Advanced Features</b></summary>
+
 - ⏸️ **Configurable breaks** between sessions (1-60 minutes)
 - 🎨 **9 beautiful themes** (System, Dark, Light, Calcite, Charoite, Emerald, Jasper, Ruby, Sapphire)
 - 🎭 **Modern UI** with smooth transitions and animations
@@ -58,6 +68,8 @@ For years, I used another program for gesture drawing practice but was dissatisf
 - 📐 **Customizable grid** with dual-color lines
 - 🔔 **Session completion notifications**
 
+</details>
+
 ## 📋 Requirements
 
 | Component | Version | Description |
@@ -68,7 +80,8 @@ For years, I used another program for gesture drawing practice but was dissatisf
 
 ## 🚀 Quick Start
 
-### 📥 Installation
+<details>
+<summary><b>📥 Installation Options</b></summary>
 
 #### Option 1: Clone Repository
 ```bash
@@ -82,6 +95,8 @@ pip install -r requirements.txt
 2. Extract the archive
 3. Install dependencies: `pip install PyQt6 send2trash`
 
+</details>
+
 ### ▶️ Running the Application
 ```bash
 python gestart.py
@@ -89,7 +104,8 @@ python gestart.py
 
 > 💡 **Tip**: On Windows, you can also double-click `gestart.py` to run the application.
 
-## ⌨️ Controls
+<details>
+<summary><b>⌨️ Controls & Shortcuts</b></summary>
 
 ### 🎮 Keyboard Shortcuts
 
@@ -122,7 +138,10 @@ python gestart.py
 | **Mouse Wheel** | Zoom in/out at cursor position |
 | **Right Click** | Context menu (if available) |
 
-## ⚙️ Settings & Configuration
+</details>
+
+<details>
+<summary><b>⚙️ Settings & Configuration</b></summary>
 
 ### 📁 Data Storage
 All settings and data are stored in the `~/.gestart/` folder:
@@ -141,7 +160,10 @@ All settings and data are stored in the `~/.gestart/` folder:
 - **Grid settings**: 1-3 horizontal/vertical lines with dual-color support
 - **Always on top**: Keep window above other applications
 
-## 👥 Credits & Acknowledgments
+</details>
+
+<details>
+<summary><b>👥 Credits & Acknowledgments</b></summary>
 
 | Role | Contributor | Description |
 |------|-------------|-------------|
@@ -149,6 +171,8 @@ All settings and data are stored in the `~/.gestart/` folder:
 | **💻 Development** | Cursor (AI) | Code implementation and technical development |
 | **🔊 Audio** | Mixkit (Website) | Countdown sound effects and audio assets |
 | **🎯 Icons** | Tabler (Website) | UI icons and visual elements |
+
+</details>
 
 ## 🤝 Contributing
 
@@ -160,7 +184,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-
+<div align="center">
 
 **Made with ❤️ for artists worldwide**
 
