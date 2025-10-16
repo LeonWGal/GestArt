@@ -10,15 +10,9 @@
 
 [English](README.md) • [Русский](README.ru.md)
 
+🌍 GestArt supports **100 languages**: **English**, **Русский**, Afrikaans, አማርኛ, العربية, Авар мацӏ, Azərbaycan, Башҡортса, Беларуская, Български, বাংলা, Буряад хэлэн, Català, Нохчийн мотт, Чӑваш чӗлхи, Čeština, Dansk, Deutsch, Ελληνικά, Español, Eesti, فارسی, Fulfulde, Suomi, Français, ગુજરાતી, Hausa, עברית, हिन्दी, Hrvatski, Kreyòl ayisyen, Magyar, Հայերեն, Bahasa Indonesia, Igbo, Íslenska, Italiano, 日本語, Basa Jawa, ქართული, Адыгэбзэ, Қазақша, ខ្មែរ, ಕನ್ನಡ, 한국어, Къарачай тил, Kurdî, Къумукъ тил, Кыргызча, Лезги чӏал, ລາວ, Lietuvių, Latviešu, Malagasy, Марий йылме, മലയാളം, Монгол, मराठी, Bahasa Melayu, မြန်မာ, नेपाली, Nederlands, Norsk, Afaan Oromoo, Ирон ӕвзаг, ਪੰਜਾਬੀ, Polski, Português, Português (Brasil), پښتو, Runa Simi, Română, Саха тыла, සිංහල, Slovenčina, Slovenščina, Shqip, Српски, Soomaali, Basa Sunda, Svenska, Kiswahili, தமிழ், తెలుగు, ไทย, Türkmen, Tagalog, Türkçe, Татарча, Тоҷикӣ, Удмурт кыл, Uyghur, Українська, اردو, O'zbekcha, Tiếng Việt, Yorùbá, 中文 (简体), 中文 (繁體), IsiZulu
+
 <img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
-
-
-
-## 🌍 Language Support
-
-GestArt supports **100 languages** with complete interface translations:
-
-**English**, **Русский**, Afrikaans, አማርኛ, العربية, Авар мацӏ, Azərbaycan, Башҡортса, Беларуская, Български, বাংলা, Буряад хэлэн, Català, Нохчийн мотт, Чӑваш чӗлхи, Čeština, Dansk, Deutsch, Ελληνικά, Español, Eesti, فارسی, Fulfulde, Suomi, Français, ગુજરાતી, Hausa, עברית, हिन्दी, Hrvatski, Kreyòl ayisyen, Magyar, Հայերեն, Bahasa Indonesia, Igbo, Íslenska, Italiano, 日本語, Basa Jawa, ქართული, Адыгэбзэ, Қазақша, ខ្មែរ, ಕನ್ನಡ, 한국어, Къарачай тил, Kurdî, Къумукъ тил, Кыргызча, Лезги чӏал, ລາວ, Lietuvių, Latviešu, Malagasy, Марий йылме, മലയാളം, Монгол, मराठी, Bahasa Melayu, မြန်မာ, नेपाली, Nederlands, Norsk, Afaan Oromoo, Ирон ӕвзаг, ਪੰਜਾਬੀ, Polski, Português, Português (Brasil), پښتو, Runa Simi, Română, Саха тыла, සිංහල, Slovenčina, Slovenščina, Shqip, Српски, Soomaali, Basa Sunda, Svenska, Kiswahili, தமிழ், తెలుగు, ไทย, Türkmen, Tagalog, Türkçe, Татарча, Тоҷикӣ, Удмурт кыл, Uyghur, Українська, اردو, O'zbekcha, Tiếng Việt, Yorùbá, 中文 (简体), 中文 (繁體), IsiZulu
 
 ## 🎨 About GestArt
 
