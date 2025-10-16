@@ -1,5 +1,5 @@
 # 🎨 GestArt
-
+<img width="1200" height="800" alt="GestArt Interface" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
 <div align="center">
 
 [![Version](https://img.shields.io/badge/version-0.9.8-blue.svg)](https://github.com/LeonWGal/gestart/releases)
@@ -17,7 +17,7 @@
 
 </details>
 
-<img width="1200" height="800" alt="GestArt Interface" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
+
 
 ## 🎨 About GestArt
 
