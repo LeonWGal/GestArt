@@ -10,7 +10,7 @@
 
 [English](README.md) • [Русский](README.ru.md)
 
-</div>
+
 
 ## 🌍 Language Support
 
@@ -163,7 +163,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
+</div>
 
 **Made with ❤️ for artists worldwide**
 
