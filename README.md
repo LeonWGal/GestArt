@@ -10,7 +10,8 @@
 
 [English](README.md) • [Русский](README.ru.md)
 
-<img width="1200" height="800" alt="python_r7JGkwuLi1" src="https://github.com/user-attachments/assets/b6cb2276-e2b2-490e-9288-739dd507eba3" />
+<img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
+
 
 
 ## 🌍 Language Support
