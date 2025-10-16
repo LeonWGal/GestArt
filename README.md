@@ -1,4 +1,4 @@
-# 🎨 GestArt
+<img width="1152" height="768" alt="00055--ntrMIXIllustriousXL_xii-1girl, 1boy, _xxzero, __rizdraws, Man and woman lie side by side, facing same direction  He enters her from behind, shallow stro" src="https://github.com/user-attachments/assets/2fc7ba31-1dd6-4bb5-a680-e21cdc91ca5f" /># 🎨 GestArt
 
 <div align="center">
 
@@ -10,6 +10,7 @@
 
 [English](README.md) • [Русский](README.ru.md)
 
+<img width="1200" height="800" alt="python_r7JGkwuLi1" src="https://github.com/user-attachments/assets/b6cb2276-e2b2-490e-9288-739dd507eba3" />
 
 
 ## 🌍 Language Support
