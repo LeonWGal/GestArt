@@ -1,4 +1,4 @@
-<img width="1152" height="768" alt="00055--ntrMIXIllustriousXL_xii-1girl, 1boy, _xxzero, __rizdraws, Man and woman lie side by side, facing same direction  He enters her from behind, shallow stro" src="https://github.com/user-attachments/assets/2fc7ba31-1dd6-4bb5-a680-e21cdc91ca5f" /># 🎨 GestArt
+# 🎨 GestArt
 
 <div align="center">
 
