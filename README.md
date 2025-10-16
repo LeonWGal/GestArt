@@ -35,6 +35,7 @@ For years, I used another program for gesture drawing practice but was dissatisf
 [![Telegram](https://img.shields.io/badge/Telegram-@LeonWGal-blue?logo=telegram)](https://t.me/LeonWGal)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-purple?logo=discord)](https://discord.gg/yHrQBTUaGr)
 [![Patreon](https://img.shields.io/badge/Patreon-Support%20Me-orange?logo=patreon)](https://patreon.com/LeonWGal)
+</div>
 
 ## ✨ Features
 
@@ -163,7 +164,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-</div>
+
 
 **Made with ❤️ for artists worldwide**
 
