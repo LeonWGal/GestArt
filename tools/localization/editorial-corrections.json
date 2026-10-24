@@ -1,0 +1,16 @@
+[
+  {
+    "locale": "hu",
+    "type": "restore_source_key",
+    "from": "Jobb",
+    "to": "Right",
+    "value": "Jobb"
+  },
+  {
+    "locale": "ar",
+    "key": "Undertone",
+    "before": "لون خفي",
+    "after": "درجة الخلفية",
+    "reason": "Background tone selector, not a hidden color."
+  }
+]

@@ -1,0 +1,64 @@
+name: Native build and tests
+on:
+  push:
+    branches: [ultimate]
+  pull_request:
+    branches: [ultimate]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2022
+            host: windows
+            arch: win64_msvc2022_64
+            qt_folder: msvc2022_64
+            generator: Visual Studio 17 2022
+          - os: ubuntu-24.04
+            host: linux
+            arch: linux_gcc_64
+            qt_folder: gcc_64
+            generator: Ninja
+          - os: macos-14
+            host: mac
+            arch: clang_64
+            qt_folder: macos
+            generator: Ninja
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Linux system dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ninja-build libgl1-mesa-dev libxkbcommon-dev libegl1 libxcb-cursor0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libxcb-xkb1 libpulse-dev libnss3 libxcomposite1 libxdamage1 libxrandr2 libxtst6 libasound2t64
+      - name: Install pinned Qt SDK
+        shell: pwsh
+        run: |
+          python -m pip install aqtinstall==3.3.0
+          python -m aqt install-qt ${{ matrix.host }} desktop 6.8.3 ${{ matrix.arch }} -O .deps/Qt -m qtshadertools qtmultimedia qtimageformats qtwebengine qtwebchannel qtpositioning qtserialport
+      - name: Build codecs
+        shell: pwsh
+        run: ./tools/build-codecs.ps1 -Generator '${{ matrix.generator }}'
+      - name: Build, test, deploy
+        shell: pwsh
+        run: ./tools/build.ps1 -QtRoot "$env:GITHUB_WORKSPACE/.deps/Qt/6.8.3/${{ matrix.qt_folder }}" -Generator '${{ matrix.generator }}' -Package
+      - name: Package Windows portable releases
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./tools/package-portable.ps1
+      - uses: actions/upload-artifact@v4
+        if: runner.os == 'Windows'
+        with:
+          name: GestArt-Ultimate-Windows-x64-portable
+          path: dist/*
+      - uses: actions/upload-artifact@v4
+        if: runner.os != 'Windows'
+        with:
+          name: GestArt-${{ runner.os }}-${{ runner.arch }}
+          path: release/

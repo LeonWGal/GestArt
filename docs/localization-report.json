@@ -1,0 +1,146 @@
+{
+  "version": "1.7.1",
+  "tool": "@lobehub/i18n-cli@1.27.0",
+  "provider": "Gemini",
+  "model": "gemini-3.5-flash-lite",
+  "keysPerLocale": 387,
+  "translatedValues": 7740,
+  "tests": {
+    "integrationPassed": 24,
+    "ctestGroupsPassed": 3,
+    "retiredLocaleMigration": "af -> ru, persisted",
+    "nativeUiChecks": [
+      "home with retired locale",
+      "Arabic appearance at 360x440",
+      "controls-test"
+    ],
+    "previousReleaseVisualReview": "20 home locales and 5 appearance locales; translations unchanged"
+  },
+  "quality": "Machine translation, structural checks and terminology spot review; native-speaker release review remains recommended.",
+  "catalogs": [
+    {
+      "locale": "de",
+      "name": "Deutsch",
+      "keys": 387,
+      "sha256": "c542f6959686c320a45830b181b0b5d014348bd1e1d05baef0d0b2256b34e1c8"
+    },
+    {
+      "locale": "fr",
+      "name": "Français",
+      "keys": 387,
+      "sha256": "92eb2aceb05b6d1b0f04aa64de781f8955353a737d6751e8115f10990587b6dd"
+    },
+    {
+      "locale": "es",
+      "name": "Español",
+      "keys": 387,
+      "sha256": "320f6cc170f46845d6f1db84934977e88ed1c73478f69f56f573d992688a8468"
+    },
+    {
+      "locale": "pt-BR",
+      "name": "Português (Brasil)",
+      "keys": 387,
+      "sha256": "697ba2888e2cd93038860f6690315fb8664d220d49088cc4f13c462433af7ec2"
+    },
+    {
+      "locale": "it",
+      "name": "Italiano",
+      "keys": 387,
+      "sha256": "deb749b7250de34503cd6ca9fa7c05a1e98e8e03538217b8755c15dceccc54ec"
+    },
+    {
+      "locale": "pl",
+      "name": "Polski",
+      "keys": 387,
+      "sha256": "596d0f8353afe1cdfd1e24b170d82121356920fff174fb6b4df7b8e8c5fa0d26"
+    },
+    {
+      "locale": "uk",
+      "name": "Українська",
+      "keys": 387,
+      "sha256": "19f487d611e5bbeaa4ab1effe0f8a5ae9b7ffb1e1a0b196417e1e8aa39296513"
+    },
+    {
+      "locale": "tr",
+      "name": "Türkçe",
+      "keys": 387,
+      "sha256": "26ec2f20dd36b5cebb04a9989f8d8e03081821b069ad764b15bcdd6985ee8190"
+    },
+    {
+      "locale": "zh-CN",
+      "name": "中文 (简体)",
+      "keys": 387,
+      "sha256": "0c821b6dcfc8ac2d396681f228a85dc522b1068e390f54c14819d3be6b1946b2"
+    },
+    {
+      "locale": "zh-TW",
+      "name": "中文 (繁體)",
+      "keys": 387,
+      "sha256": "dced9e1b29002474bd839d81b5e9e0be298f7963304e81b560253fccc879456f"
+    },
+    {
+      "locale": "ja",
+      "name": "日本語",
+      "keys": 387,
+      "sha256": "b1a2ff1c9c905e9a41547f3f02afa9e30cc489d8bb0592ca7a5a75374ab811e4"
+    },
+    {
+      "locale": "ko",
+      "name": "한국어",
+      "keys": 387,
+      "sha256": "401824471fa2bb09ac5c1a6fb35a787704511b14c0af78bfe0bc31fc85505d79"
+    },
+    {
+      "locale": "ar",
+      "name": "العربية",
+      "keys": 387,
+      "sha256": "a110b34c7228a7ee861ed5e64c0adcd0f59a0b6b0c7a9daca0f4f01c8006fe23"
+    },
+    {
+      "locale": "id",
+      "name": "Bahasa Indonesia",
+      "keys": 387,
+      "sha256": "414c04de1477d8cc09a00c4cbebd85905447337aa5c46a99b259e22a2e17a4ea"
+    },
+    {
+      "locale": "vi",
+      "name": "Tiếng Việt",
+      "keys": 387,
+      "sha256": "3349553315c0b4257afdfd8246d171ce93697d8c01558f324dee3abc27b11200"
+    },
+    {
+      "locale": "th",
+      "name": "ไทย",
+      "keys": 387,
+      "sha256": "903232acba30913585268a712e6ebdff922e1a46a0ab6fa27861f6a8dc0b02b8"
+    },
+    {
+      "locale": "nl",
+      "name": "Nederlands",
+      "keys": 387,
+      "sha256": "2d1709d05bce10707048cb2d15def3f1da1a7876b38d64fdd638e6e5a2603d0d"
+    },
+    {
+      "locale": "cs",
+      "name": "Čeština",
+      "keys": 387,
+      "sha256": "6f0fce4d494d96ca12f21f0629b5de2c9597cd0cd682029555d6202d340f7e1c"
+    },
+    {
+      "locale": "hu",
+      "name": "Magyar",
+      "keys": 387,
+      "sha256": "90194dfa061457e711cf9f4b008ae15e1e5720487d8aad15cfef071fefa17104"
+    },
+    {
+      "locale": "ro",
+      "name": "Română",
+      "keys": 387,
+      "sha256": "9f614ad4bce5f25c084861e02e94e9bcf7eed1b8eaf27a827a2a28fa265c4706"
+    }
+  ],
+  "supportedCatalogs": 22,
+  "retiredCatalogFilesRemoved": 102,
+  "fallbackForRetiredLocale": "ru",
+  "onlineReferencesNewKeys": 24
+}

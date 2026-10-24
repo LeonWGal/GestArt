@@ -1,0 +1,14 @@
+{
+  "name": "gestart-localization",
+  "type": "module",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@lobehub/i18n-cli": "1.27.0"
+  },
+  "scripts": {
+    "translate": "node run.mjs && node validate.mjs --promote",
+    "lint": "lobe-i18n lint --config .i18nrc.cjs",
+    "validate": "node validate.mjs"
+  },
+  "private": true
+}

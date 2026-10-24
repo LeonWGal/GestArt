@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=GestArt Ultimate
+Comment=Timed reference drawing studio
+Exec=GestArtUltimate
+Icon=com.gestart.ultimate
+Categories=Graphics;Education;
+Terminal=false

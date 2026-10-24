@@ -1,0 +1,76 @@
+{
+  "version": "1.7.1",
+  "providers": [
+    "quickposes",
+    "proko",
+    "poselibrary",
+    "sketchdaily"
+  ],
+  "modes": [
+    "embedded websites with native settings",
+    "multi-set reference downloader"
+  ],
+  "tests": {
+    "ctestGroupsPassed": 3,
+    "onlineTestCases": 14,
+    "nativeControls": "passed, phase 12",
+    "isolatedPreviews": "passed, phase 7",
+    "embeddedSites": {
+      "quickposes": 45,
+      "proko": 43,
+      "poselibrary": 23,
+      "sketchdaily": 9
+    },
+    "batchDownload": {
+      "sets": 3,
+      "images": 6,
+      "separateFolders": 3,
+      "downloadedFolderSession": "passed",
+      "viaQmlForm": true,
+      "filtersVerified": [
+        "Quickposes gender/clothing",
+        "SketchDaily gender/clothing/pose/view angle"
+      ]
+    },
+    "portableWithoutSdk": [
+      "Quickposes browser with rendered screenshot",
+      "three-set download and start session"
+    ],
+    "compactUi": [
+      "sites picker 360x440",
+      "downloader 360x440",
+      "embedded browser 360x440",
+      "Arabic downloader 360x440"
+    ]
+  },
+  "localization": {
+    "catalogs": 22,
+    "keysEach": 387,
+    "additionalTargets": 20,
+    "newKeys": 23,
+    "validatorWarnings": 0
+  },
+  "notes": [
+    "Website features depend on each provider; guest/public references only in downloader.",
+    "Queue is kept until application exit; destination and imported collections persist.",
+    "Windows release tested; macOS/Linux not built in this environment."
+  ],
+  "filters": {
+    "quickposes": [
+      "gender",
+      "clothing"
+    ],
+    "sketchdaily": [
+      "gender",
+      "clothing",
+      "pose type",
+      "view angle"
+    ],
+    "proko": [
+      "reference packs"
+    ],
+    "poselibrary": [
+      "collections and SFW/NSFW folders"
+    ]
+  }
+}

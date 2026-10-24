@@ -1,204 +1,115 @@
-# 🎨 GestArt
-<img width="1200" height="800" alt="GestArt Interface" src="https://github.com/user-attachments/assets/899fd304-edfb-4c32-a378-cabf45b93ad4" />
-<div align="center">
+# GestArt Ultimate 1.8.0
 
-[![Version](https://img.shields.io/badge/version-0.9.8-blue.svg)](https://github.com/LeonWGal/gestart/releases)
-[![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://python.org)
-[![PyQt6](https://img.shields.io/badge/PyQt6-6.4+-orange.svg)](https://pypi.org/project/PyQt6/)
-[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
-[![Languages](https://img.shields.io/badge/languages-100-brightgreen.svg)](#language-support)
+GestArt Ultimate — настольная программа для художников: выбирайте референсы,
+задавайте время на рисунок и практикуйтесь с таймером. Работайте со своими
+изображениями или скачивайте сеты с Quickposes, Proko, Pose Library и SketchDaily.
+Сохранённые изображения доступны без интернета и аккаунта GestArt.
 
-[English](README.md) • [Русский](README.ru.md)
+Ветка **ultimate** содержит версию на C++20 и Qt Quick.
+Прежняя версия проекта сохранена в [ветке old](https://github.com/LeonWGal/GestArt/tree/old).
 
-<details>
-<summary><b>🌍 GestArt supports 100 languages</b></summary>
+## Скачайте и запустите
 
-**English**, **Русский**, Afrikaans, አማርኛ, العربية, Авар мацӏ, Azərbaycan, Башҡортса, Беларуская, Български, বাংলা, Буряад хэлэн, Català, Нохчийн мотт, Чӑваш чӗлхи, Čeština, Dansk, Deutsch, Ελληνικά, Español, Eesti, فارسی, Fulfulde, Suomi, Français, ગુજરાતી, Hausa, עברית, हिन्दी, Hrvatski, Kreyòl ayisyen, Magyar, Հայերեն, Bahasa Indonesia, Igbo, Íslenska, Italiano, 日本語, Basa Jawa, ქართული, Адыгэбзэ, Қазақша, ខ្មែរ, ಕನ್ನಡ, 한국어, Къарачай тил, Kurdî, Къумукъ тил, Кыргызча, Лезги чӏал, ລາວ, Lietuvių, Latviešu, Malagasy, Марий йылме, മലയാളം, Монгол, मराठी, Bahasa Melayu, မြန်မာ, नेपाली, Nederlands, Norsk, Afaan Oromoo, Ирон ӕвзаг, ਪੰਜਾਬੀ, Polski, Português, Português (Brasil), پښتو, Runa Simi, Română, Саха тыла, සිංහල, Slovenčina, Slovenščina, Shqip, Српски, Soomaali, Basa Sunda, Svenska, Kiswahili, தமிழ், తెలుగు, ไทย, Türkmen, Tagalog, Türkçe, Татарча, Тоҷикӣ, Удмурт кыл, Uyghur, Українська, اردو, O'zbekcha, Tiếng Việt, Yorùbá, 中文 (简体), 中文 (繁體), IsiZulu
+Готовые сборки предназначены для **Windows 10 (1809+) / Windows 11 x64**:
 
-</details>
+| Файл | Как запустить |
+| --- | --- |
+| [Portable EXE](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.exe) | Сохраните в доступную для записи папку и откройте. Установка не нужна. |
+| [Portable ZIP](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.zip) | Распакуйте архив целиком и откройте `Start.cmd`. |
+| [SHA-256](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/SHA256SUMS.txt) | Сверьте контрольную сумму выбранного файла. |
 
+Portable EXE включает программу и библиотеки. При первом запуске он
+распаковывает библиотеки в локальный кэш. Для этого запуска требуется
+.NET Framework 4.8 или новее. ZIP запускает приложение напрямую и не требует
+.NET. Python, Qt SDK и права администратора для готовой сборки не нужны.
 
+EXE хранит настройки, историю и загрузки в `GestArtUltimate-data` рядом с собой.
+ZIP хранит их в `data` внутри распакованной папки. Не переносите один файл
+`bin/GestArtUltimate.exe` отдельно от библиотек.
+Подробнее см. [запуск portable-версии](docs/portable.md).
 
-## 🎨 About GestArt
+## Начните со своих изображений
 
-**GestArt** is a powerful PyQt6-based image viewer with customizable timer functionality, designed specifically for artists to practice gesture drawing, study reference poses, and browse image collections with precision timing. This feature-rich application supports multiple image formats, offers 9 beautiful themes, and provides a modern UI with smooth transitions and animations.
+1. На главной нажмите **Добавить папку** и выберите изображения.
+2. Укажите время на референс и количество рисунков.
+3. Нажмите **Начать сессию**.
 
-<details>
-<summary><b>💡 The Story Behind GestArt</b></summary>
+Таймер начинается после отображения изображения. Пробел ставит сессию на
+паузу, стрелки переключают референсы. При уходе курсора панели скрываются;
+таймер и прогресс следуют настройкам окна.
 
-For years, I used another program for gesture drawing practice but was dissatisfied with its limitations. As someone who doesn't code, I spent months working with AI to bring this vision to life. After many iterations and challenges, we've created a robust, feature-rich application that's now completely open-source and free for everyone to use, modify, and distribute.
+## Скачайте сет с сайта
 
-</details>
+1. Нажмите **Скачать референсы**.
+2. Во вкладке **Скачать с сайта** выберите сайт и отметьте сеты.
+3. Выберите количество изображений или включите **Скачать весь пак**.
+4. При необходимости откройте **Фильтры и папка сохранения**.
+5. Нажмите **Скачать выбранные сеты** или **Скачать весь пак**.
+6. Во вкладке **Сохранённые сеты** нажмите **Настроить сессию**.
+7. Задайте таймер и нажмите **Начать сессию**.
 
-### 🌟 Connect with the Creator
+В сессию попадает только выбранный сет. Список сохраняется после перезапуска.
+Прерванную загрузку можно продолжить. Для одного сета доступен флажок
+**Сразу начать сессию после скачивания**.
 
-[![GitHub](https://img.shields.io/badge/GitHub-LeonWGal-black?logo=github)](https://github.com/LeonWGal)
-[![Twitter](https://img.shields.io/badge/Twitter-@LeonWGal-blue?logo=twitter)](https://twitter.com/LeonWGal)
-[![Telegram](https://img.shields.io/badge/Telegram-@LeonWGal-blue?logo=telegram)](https://t.me/LeonWGal)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-purple?logo=discord)](https://discord.gg/yHrQBTUaGr)
-[![Patreon](https://img.shields.io/badge/Patreon-Support%20Me-orange?logo=patreon)](https://patreon.com/LeonWGal)
+Полный пак доступен для Quickposes, Proko и Pose Library. SketchDaily выдаёт
+случайные референсы: для него выберите количество изображений. Загрузчик
+использует открытые сеты; для аккаунта и закрытых материалов откройте сайт.
 
-</div>
+![Выбор сетов и объёма загрузки](assets/screenshots/downloads.png)
 
-## ✨ Features
+## Откройте сайт внутри программы
 
-<details>
-<summary><b>🎯 Core Functionality</b></summary>
+На странице **Онлайн-просмотр** выберите сайт. Его настройки и таймер
+работают во встроенном браузере. При уходе курсора верхняя панель полностью
+убирается, освобождая место изображению. Возвращение курсора возвращает
+управление. Кнопка **Скачать референсы** открывает загрузку выбранного сайта.
 
-- ⏱️ **Customizable timer** for image display (1-900 seconds, unlimited mode)
-- 🖼️ **Multiple image formats** (PNG, JPG, JPEG, BMP, GIF, WEBP, TIFF, ICO, SVG, HEIC, HEIF)
-- 📁 **Recursive folder scanning** with progress indication
-- 📚 **Viewed images history** with session tracking
-- 🎨 **Image effects** (B/W filter, flip, 90° rotation)
-- 🔍 **Image zoom and pan** with mouse/keyboard control
-- 🌐 **100 languages support** with complete interface translations
+Для практики с таймером, сеткой, отражением и статистикой GestArt скачайте сет
+и запустите его через **Сохранённые сеты**.
 
-</details>
+## Используйте инструменты сессии
 
-<details>
-<summary><b>⚙️ Advanced Features</b></summary>
+Основные команды доступны с клавиатуры:
 
-- ⏸️ **Configurable breaks** between sessions (1-60 minutes)
-- 🎨 **9 beautiful themes** (System, Dark, Light, Calcite, Charoite, Emerald, Jasper, Ruby, Sapphire)
-- 🎭 **Modern UI** with smooth transitions and animations
-- 🖱️ **Drag and drop folder** support with preview mode
-- 🖥️ **Full-screen support**
-- ⚡ **Asynchronous image loading** with memory-efficient caching
-- 📊 **Folder statistics tracking**
-- 📋 **Image copy to clipboard** functionality
-- 🗑️ **Trash functionality** with confirmation dialog
-- 🔊 **Timer sound effects** with volume control
-- 📐 **Customizable grid** with dual-color lines
-- 🔔 **Session completion notifications**
+| Действие | Клавиши |
+| --- | --- |
+| Пауза / продолжить | Пробел |
+| Предыдущий / следующий референс | ← / → |
+| Пропустить без отметки завершения | S |
+| Чёрно-белый режим | B |
+| Отразить по горизонтали / вертикали | H / V |
+| Повернуть на 90° | R |
+| Сетка | G |
+| Сбросить эффекты | Backspace |
+| Вписать / масштаб 100% | Ctrl+0 / Ctrl+1 |
+| Полный экран | F11 |
+| Настройки | Ctrl+, |
+| Поверх остальных окон | A |
 
-</details>
+В приложении доступны коллекции, предпросмотр, история, календарь практики,
+цели на день, перерывы и звуковой отсчёт. Минимальный размер окна — 360×440.
+Windows-сборка читает JPEG, PNG, BMP, GIF, WebP, TIFF, ICO, SVG и HEIC/HEIF с HEVC.
+GIF отображается статично; AVIF зависит от доступного декодера.
 
-## 📋 Requirements
+Интерфейс поддерживает 22 языка. Часть переводов выполнена машинно;
+для непереведённых строк используется английский текст.
 
-| Component | Version | Description |
-|-----------|---------|-------------|
-| **Python** | 3.8+ | Core runtime (tested with 3.8-3.12) |
-| **PyQt6** | 6.4.0+ | GUI framework |
-| **send2trash** | 1.8.0+ | Safe file deletion |
+## Найдите инструкции
 
-## 🚀 Quick Start
+- [Сайты, скачивание и сохранённые сеты](docs/online-sources.md).
+- [Portable-версия, данные и обновление](docs/portable.md).
+- [Сессия, панели и управление](docs/interface.md).
+- [Сборка из исходников](docs/build.md).
+- [Результаты проверок](docs/verification.md).
+- [История изменений](CHANGELOG.md).
+- [Архитектура](docs/architecture.md).
+- [Как внести изменения](CONTRIBUTING.md).
 
-<details>
-<summary><b>📥 Installation Options</b></summary>
+## Лицензии
 
-#### Option 1: Clone Repository
-```bash
-git clone https://github.com/LeonWGal/gestart.git
-cd gestart
-pip install -r requirements.txt
-```
-
-#### Option 2: Direct Download
-1. Download the latest release from [Releases](https://github.com/LeonWGal/gestart/releases)
-2. Extract the archive
-3. Install dependencies: `pip install PyQt6 send2trash`
-
-</details>
-
-### ▶️ Running the Application
-```bash
-python gestart.py
-```
-
-> 💡 **Tip**: On Windows, you can also double-click `gestart.py` to run the application.
-
-<details>
-<summary><b>⌨️ Controls & Shortcuts</b></summary>
-
-### 🎮 Keyboard Shortcuts
-
-| Key | Action | Description |
-|-----|--------|-------------|
-| `←/→` | **Navigate** | Previous/Next image |
-| `Space` | **Control** | Pause/Resume or Start new session |
-| `S` | **Skip** | Skip current image |
-| `O` | **Open** | Open file in system viewer |
-| `C` | **Copy** | Copy image to clipboard |
-| `G` | **Grid** | Toggle grid overlay |
-| `Delete` | **Delete** | Move to trash |
-| `B` | **Filter** | Black & White filter |
-| `V` | **Flip** | Flip vertically |
-| `H` | **Flip** | Flip horizontally |
-| `R` | **Rotate** | Rotate 90° |
-| `Backspace` | **Reset** | Reset image transformations |
-| `T` | **Timer** | Show/Hide timer |
-| `A` | **Always on Top** | Toggle always on top |
-| `Ctrl+,` | **Settings** | Open settings dialog |
-| `Ctrl++` | **Zoom In** | Increase zoom level |
-| `Ctrl+-` | **Zoom Out** | Decrease zoom level |
-| `Ctrl+0` | **Reset Zoom** | Reset to original size |
-
-### 🖱️ Mouse Controls
-
-| Action | Description |
-|--------|-------------|
-| **Left Click + Drag** | Pan image when zoomed |
-| **Mouse Wheel** | Zoom in/out at cursor position |
-| **Right Click** | Context menu (if available) |
-
-</details>
-
-<details>
-<summary><b>⚙️ Settings & Configuration</b></summary>
-
-### 📁 Data Storage
-All settings and data are stored in the `~/.gestart/` folder:
-- `settings.json` - Application settings and preferences
-- `history.json` - Viewed images history and sessions
-- `folder_stats.json` - Folder viewing statistics and analytics
-
-### 🎛️ Available Settings
-- **Display time per image**: 1-900 seconds (with unlimited option)
-- **Number of images per session**: 1-900 images (with unlimited option)
-- **Break duration**: 1-60 minutes between sessions
-- **Timer sound volume**: 0-100% audio control
-- **Theme selection**: 9 beautiful themes
-- **Language selection**: 100 languages with instant switching
-- **Timer position**: Left, Center, or Right alignment
-- **Grid settings**: 1-3 horizontal/vertical lines with dual-color support
-- **Always on top**: Keep window above other applications
-
-</details>
-
-<details>
-<summary><b>👥 Credits & Acknowledgments</b></summary>
-
-| Role | Contributor | Description |
-|------|-------------|-------------|
-| **🎨 Concept & Design** | LeonWGal | Original idea and user experience design |
-| **💻 Development** | Cursor (AI) | Code implementation and technical development |
-| **🔊 Audio** | Mixkit (Website) | Countdown sound effects and audio assets |
-| **🎯 Icons** | Tabler (Website) | UI icons and visual elements |
-
-</details>
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving translations, your help makes GestArt better for everyone.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-
-**Made with ❤️ for artists worldwide**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/LeonWGal/gestart)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?logo=twitter)](https://twitter.com/LeonWGal)
-[![Telegram](https://img.shields.io/badge/Telegram-Join-blue?logo=telegram)](https://t.me/LeonWGal)
-[![Discord](https://img.shields.io/badge/Discord-Join-purple?logo=discord)](https://discord.gg/yHrQBTUaGr)
-[![Patreon](https://img.shields.io/badge/Patreon-Support-orange?logo=patreon)](https://patreon.com/LeonWGal)
-
-[![Issues](https://img.shields.io/badge/Issues-Report%20Bug-red?logo=github)](https://github.com/LeonWGal/gestart/issues)
-[![Pull Requests](https://img.shields.io/badge/PRs-Welcome-green?logo=github)](https://github.com/LeonWGal/gestart/pulls)
-[![Stars](https://img.shields.io/badge/Stars-⭐-yellow?logo=github)](https://github.com/LeonWGal/gestart/stargazers)
-
-</div>
+Код приложения распространяется под [MIT](LICENSE).
+Библиотеки и шрифты сохраняют свои лицензии; см.
+[сторонние компоненты](THIRD_PARTY_NOTICES.md) и [исходники библиотек](licenses/SOURCES.md).
+Скачанные референсы принадлежат их авторам; сведения об источнике хранятся
+в `sources.json` рядом с изображениями.
