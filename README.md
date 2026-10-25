@@ -10,6 +10,59 @@ offline, without a GestArt account.
 The **ultimate** branch contains the C++20 and Qt Quick version.
 The previous version is preserved in the [old branch](https://github.com/LeonWGal/GestArt/tree/old).
 
+## Watch the feature tour
+
+[![Watch the GestArt Ultimate feature tour: collections, image tools, websites, and offline sets](assets/screenshots/video-preview.jpg)](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-Highlights-RU-EN.mp4)
+
+[▶ Watch or download the demo — 1:27, Full HD, MP4](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-Highlights-RU-EN.mp4).
+English and Russian captions, no narration. The demo uses clothed references
+from Grafit Reference Sampler and shows website practice and downloads.
+Music: **Lofi Hip Hop Loop** by OMF-Games, released under CC0;
+see the [music source and license](assets/media/music-license.txt).
+
+## Features
+
+Use the tools that fit your drawing practice:
+
+| Feature | What you can do |
+| --- | --- |
+| Timed practice | Set the time per reference and the number of studies, use unlimited sessions, pause, skip, and schedule breaks with countdown sounds. |
+| Image tools | Switch to black and white, add a configurable grid, mirror, rotate, zoom, pan, and fit the image to the window. |
+| Collections | Add your own folders, browse image previews, search, rename collections, and choose which images enter a session. |
+| Four online sources | Browse Quickposes, Proko, Pose Library, and SketchDaily inside the app with the website's own settings and timer. |
+| Set downloads | Preview sets, filter references where supported, choose an image count or a full pack, and resume interrupted downloads. |
+| Offline practice | Keep downloaded sets locally and start a session with only the selected set and GestArt's timer and tools. |
+| Focus and window controls | Hide panels when the pointer leaves, use full screen or always-on-top mode, and choose the timer's visibility and position. |
+| Appearance | Choose light or dark mode, follow the system theme, adjust color accents, and set panel transparency, blur, and reduced motion. |
+| Practice tracking | Review history, completed studies, practice time, active days, a calendar, and daily goals based on time or study count. |
+| 22 interface languages | Change the language in **Settings → Appearance**; Arabic also uses a right-to-left layout. |
+| Windows portable builds | Run the EXE or ZIP without installation and keep your settings, history, and downloads in the portable data folder. |
+
+<details>
+<summary>All 22 interface languages</summary>
+
+Arabic, Chinese (Simplified), Chinese (Traditional), Czech, Dutch, English,
+French, German, Hungarian, Indonesian, Italian, Japanese, Korean, Polish,
+Portuguese (Brazil), Romanian, Russian, Spanish, Thai, Turkish, Ukrainian,
+and Vietnamese.
+
+Some translations are machine-generated. Missing translations appear in English.
+
+</details>
+
+## Screenshots
+
+The screenshots show the Russian interface and clothed Grafit references.
+You can change the interface language in the app.
+
+| Collections and previews | Image tools during a session |
+| --- | --- |
+| ![Collection library with four clothed reference previews](assets/screenshots/collections.jpg) | ![Reference session with black-and-white mode and a grid](assets/screenshots/session-tools.jpg) |
+
+| Practice calendar and daily goals | Themes and appearance settings |
+| --- | --- |
+| ![Practice totals, daily goal progress, and calendar](assets/screenshots/practice.jpg) | ![Light and dark modes, color accents, and theme previews](assets/screenshots/settings.jpg) |
+
 ## Changes since GestArt 0.9.8
 
 Ultimate continues the drawing practice app. The timer, breaks, grid, image
@@ -77,7 +130,9 @@ provides random references: choose an image count for this source.
 The downloader uses public sets; open the website to access your account
 or restricted materials.
 
-![Set selection and download size in the Russian interface](assets/screenshots/downloads.png)
+| Download filters | Saved sets |
+| --- | --- |
+| ![SketchDaily download options with the clothed filter selected](assets/screenshots/downloads.png) | ![Saved reference sets with buttons to set up a session](assets/screenshots/saved-sets.png) |
 
 ## Open a website inside the app
 
@@ -88,6 +143,8 @@ restore the controls. **Download references** opens downloads for that website.
 
 To practice with GestArt's timer, grid, mirroring, and statistics, download a
 set and start it from **Saved sets**.
+
+![Clothed reference on SketchDaily inside the built-in browser](assets/screenshots/browser.jpg)
 
 ## Use session tools
 

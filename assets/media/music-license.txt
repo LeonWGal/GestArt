@@ -1,0 +1,9 @@
+Music: Lofi Hip Hop Loop
+Author: OMF-Games / omfgdude
+Source: https://opengameart.org/content/lofi-hip-hop-loop
+Downloaded file: https://opengameart.org/sites/default/files/LofiLoop_2.ogg
+License: CC0 1.0 Universal (public domain dedication)
+https://creativecommons.org/publicdomain/zero/1.0/
+The source page explicitly labels the track CC0. Attribution is optional.
+Changes: excerpted to the video length, normalized volume, fade in and fade out.
+SHA-256: e57ba821d4db8d66783ca984a2778ec68d1439e862239ec36407344ef3bd1eab
