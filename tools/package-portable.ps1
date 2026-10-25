@@ -8,6 +8,8 @@ $outputRoot=[IO.Path]::GetFullPath($OutputDirectory)
 if($outputRoot.Equals($releaseRoot,[StringComparison]::OrdinalIgnoreCase) -or $outputRoot.StartsWith($releaseRoot+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'The output directory must be outside the release directory'}
 if(!$Version){$match=[regex]::Match((Get-Content -LiteralPath (Join-Path $projectRoot 'CMakeLists.txt') -Raw),'project\(GestArtUltimate VERSION ([0-9.]+)');$Version=$match.Groups[1].Value}
 if($Version -notmatch '^\d+\.\d+\.\d+$'){throw 'Invalid release version'}
+$icon=Join-Path $projectRoot 'assets/app-icon.ico'
+if(!(Test-Path -LiteralPath $icon)){throw 'Application icon not found'}
 foreach($required in @('bin/GestArtUltimate.exe','bin/Qt6Core.dll','bin/QtWebEngineProcess.exe','resources/icudtl.dat','LICENSE','THIRD_PARTY_NOTICES.md')){
     if(!(Test-Path -LiteralPath (Join-Path $releaseRoot $required))){throw ('Missing release file: '+$required)}
 }
@@ -33,7 +35,7 @@ $template=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'portable/PortableLa
 $template=$template.Replace('__PAYLOAD_SHA256__',$hash).Replace('1.8.0',$Version)
 [IO.File]::WriteAllText($source,$template,[Text.UTF8Encoding]::new($false))
 $exe=Join-Path $outputRoot ('GestArt-Ultimate-'+$Version+'-windows-x64-portable.exe')
-& $compiler /nologo /optimize+ /target:winexe /platform:x64 "/out:$exe" "/win32manifest:$(Join-Path $PSScriptRoot 'portable/app.manifest')" /reference:System.IO.Compression.dll /reference:System.IO.Compression.FileSystem.dll /reference:System.Windows.Forms.dll "/resource:$zip,payload.zip" $source
+& $compiler /nologo /optimize+ /target:winexe /platform:x64 "/out:$exe" "/win32icon:$icon" "/win32manifest:$(Join-Path $PSScriptRoot 'portable/app.manifest')" /reference:System.IO.Compression.dll /reference:System.IO.Compression.FileSystem.dll /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/resource:$zip,payload.zip" $source
 if($LASTEXITCODE -ne 0){throw 'Portable launcher compilation failed'}
 # Only remove the private build directory just created under this output directory.
 $resolvedTemporary=[IO.Path]::GetFullPath($temporaryRoot)

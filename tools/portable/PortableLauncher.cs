@@ -32,6 +32,7 @@ internal static class PortableLauncher
         using (var window = new Form())
         {
             window.Text = "GestArt Ultimate Portable " + Version;
+            window.Icon = System.Drawing.Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
             window.Width = 420; window.Height = 142;
             window.FormBorderStyle = FormBorderStyle.FixedDialog;
             window.StartPosition = FormStartPosition.CenterScreen;

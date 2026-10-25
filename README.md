@@ -1,134 +1,138 @@
 # GestArt Ultimate 1.8.0
 
-[Русский](README.md) · [English](README.en.md)
+[English](README.md) · [Русский](README.ru.md)
 
-GestArt Ultimate — настольная программа для художников: выбирайте референсы,
-задавайте время на рисунок и практикуйтесь с таймером. Работайте со своими
-изображениями или скачивайте сеты с Quickposes, Proko, Pose Library и SketchDaily.
-Сохранённые изображения доступны без интернета и аккаунта GestArt.
+GestArt Ultimate is a desktop app for artists: choose references, set a drawing
+time, and practice with a timer. Use your own images or download sets from
+Quickposes, Proko, Pose Library, and SketchDaily. Saved images are available
+offline, without a GestArt account.
 
-Ветка **ultimate** содержит версию на C++20 и Qt Quick.
-Прежняя версия проекта сохранена в [ветке old](https://github.com/LeonWGal/GestArt/tree/old).
+The **ultimate** branch contains the C++20 and Qt Quick version.
+The previous version is preserved in the [old branch](https://github.com/LeonWGal/GestArt/tree/old).
 
-## Что изменилось после GestArt 0.9.8
+## Changes since GestArt 0.9.8
 
-Ultimate продолжает программу для практики рисунка. Таймер, перерывы, сетка,
-эффекты и работа со своими изображениями остаются основой сессии.
-Основные отличия от версии 0.9.8:
+Ultimate continues the drawing practice app. The timer, breaks, grid, image
+effects, and support for your own images remain part of each session.
+The main differences from version 0.9.8 are:
 
-| Возможность | GestArt 0.9.8 | GestArt Ultimate 1.8.0 |
+| Feature | GestArt 0.9.8 | GestArt Ultimate 1.8.0 |
 | --- | --- | --- |
-| Основа приложения | Python и PyQt6 | C++20 и Qt Quick |
-| Источники референсов | Локальные папки | Локальные папки и скачивание с Quickposes, Proko, Pose Library и SketchDaily |
-| Организация | Просмотр папок и статистика по папкам | Библиотека коллекций, превью и сохранённые сеты для отдельных сессий |
-| Сайты | Референсы добавляются из папок | Встроенный браузер, выбор сетов, полные паки и продолжение загрузок |
-| Практика | История просмотров и статистика папок | История сессий, календарь практики и цели на день |
+| App foundation | Python and PyQt6 | C++20 and Qt Quick |
+| Reference sources | Local folders | Local folders and downloads from Quickposes, Proko, Pose Library, and SketchDaily |
+| Organization | Folder browsing and folder statistics | Collection library, previews, and saved sets for individual sessions |
+| Websites | Add references from folders | Built-in browser, set selection, full packs, and resumable downloads |
+| Practice | Viewing history and folder statistics | Session history, practice calendar, and daily goals |
 
-В версии 0.9.8 заявлены 100 языков; интерфейс Ultimate содержит 22 языковых
-каталога. Часть переводов Ultimate выполнена машинно, отсутствующие строки
-отображаются на английском.
+Version 0.9.8 lists 100 languages; Ultimate contains 22 interface language
+catalogs. Some Ultimate translations are machine-generated, and untranslated
+strings appear in English.
 
-## Скачайте и запустите
+## Download and start
 
-Готовые сборки предназначены для **Windows 10 (1809+) / Windows 11 x64**:
+Prebuilt downloads are for **Windows 10 (1809+) / Windows 11 x64**:
 
-| Файл | Как запустить |
+| File | How to start |
 | --- | --- |
-| [Portable EXE](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.exe) | Сохраните в доступную для записи папку и откройте. Установка не нужна. |
-| [Portable ZIP](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.zip) | Распакуйте архив целиком и откройте `Start.cmd`. |
-| [SHA-256](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/SHA256SUMS.txt) | Сверьте контрольную сумму выбранного файла. |
+| [Portable EXE](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.exe) | Save it in a writable folder and open it. No installation is needed. |
+| [Portable ZIP](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.zip) | Extract the entire archive and open `Start.cmd`. |
+| [SHA-256](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/SHA256SUMS.txt) | Compare the checksum for your download. |
 
-Portable EXE включает программу и библиотеки. При первом запуске он
-распаковывает библиотеки в локальный кэш. Для этого запуска требуется
-.NET Framework 4.8 или новее. ZIP запускает приложение напрямую и не требует
-.NET. Python, Qt SDK и права администратора для готовой сборки не нужны.
+The portable EXE includes the app and its libraries. On first launch, it
+extracts the libraries to a local cache. This launcher requires .NET Framework
+4.8 or later. The ZIP starts the app directly and doesn't require .NET.
+The prebuilt app doesn't require Python, a Qt SDK, or administrator rights.
 
-EXE хранит настройки, историю и загрузки в `GestArtUltimate-data` рядом с собой.
-ZIP хранит их в `data` внутри распакованной папки. Не переносите один файл
-`bin/GestArtUltimate.exe` отдельно от библиотек.
-Подробнее см. [запуск portable-версии](docs/portable.md).
+The EXE stores settings, history, and downloads in `GestArtUltimate-data`
+beside itself. The ZIP stores them in `data` inside the extracted folder.
+Keep `bin/GestArtUltimate.exe` together with its libraries.
+For details, see the [portable guide](docs/portable.md) in Russian.
 
-## Начните со своих изображений
+## Start with your own images
 
-1. На главной нажмите **Добавить папку** и выберите изображения.
-2. Укажите время на референс и количество рисунков.
-3. Нажмите **Начать сессию**.
+1. On the home screen, click **Add folder** and select your images.
+2. Set the time per reference and the number of studies.
+3. Click **Start session**.
 
-Таймер начинается после отображения изображения. Пробел ставит сессию на
-паузу, стрелки переключают референсы. При уходе курсора панели скрываются;
-таймер и прогресс следуют настройкам окна.
+The timer starts after the image appears. Space pauses the session, and the
+arrow keys change references. Panels hide when the pointer leaves the window;
+timer and progress visibility follow your window settings.
 
-## Скачайте сет с сайта
+## Download a set from a website
 
-1. Нажмите **Скачать референсы**.
-2. Во вкладке **Скачать с сайта** выберите сайт и отметьте сеты.
-3. Выберите количество изображений или включите **Скачать весь пак**.
-4. При необходимости откройте **Фильтры и папка сохранения**.
-5. Нажмите **Скачать выбранные сеты** или **Скачать весь пак**.
-6. Во вкладке **Сохранённые сеты** нажмите **Настроить сессию**.
-7. Задайте таймер и нажмите **Начать сессию**.
+1. Click **Download references**.
+2. In **Download from website**, choose a website and select sets.
+3. Choose the number of images or enable **Download entire pack**.
+4. Optional: open **Filters and save folder**.
+5. Click **Download selected sets** or **Download entire pack**.
+6. In **Saved sets**, click **Set up session**.
+7. Set the timer and click **Start session**.
 
-В сессию попадает только выбранный сет. Список сохраняется после перезапуска.
-Прерванную загрузку можно продолжить. Для одного сета доступен флажок
-**Сразу начать сессию после скачивания**.
+The session uses only the selected set. The list remains available after you
+restart the app. You can resume an interrupted download. For a single set,
+you can enable **Start a session after downloading**.
 
-Полный пак доступен для Quickposes, Proko и Pose Library. SketchDaily выдаёт
-случайные референсы: для него выберите количество изображений. Загрузчик
-использует открытые сеты; для аккаунта и закрытых материалов откройте сайт.
+Full packs are available for Quickposes, Proko, and Pose Library. SketchDaily
+provides random references: choose an image count for this source.
+The downloader uses public sets; open the website to access your account
+or restricted materials.
 
-![Выбор сетов и объёма загрузки](assets/screenshots/downloads.png)
+![Set selection and download size in the Russian interface](assets/screenshots/downloads.png)
 
-## Откройте сайт внутри программы
+## Open a website inside the app
 
-На странице **Онлайн-просмотр** выберите сайт. Его настройки и таймер
-работают во встроенном браузере. При уходе курсора верхняя панель полностью
-убирается, освобождая место изображению. Возвращение курсора возвращает
-управление. Кнопка **Скачать референсы** открывает загрузку выбранного сайта.
+Choose a website on the **Online viewing** page. Its settings and timer run
+inside the built-in browser. When the pointer leaves the window, the top
+panel collapses and frees space for the image. Move the pointer back to
+restore the controls. **Download references** opens downloads for that website.
 
-Для практики с таймером, сеткой, отражением и статистикой GestArt скачайте сет
-и запустите его через **Сохранённые сеты**.
+To practice with GestArt's timer, grid, mirroring, and statistics, download a
+set and start it from **Saved sets**.
 
-## Используйте инструменты сессии
+## Use session tools
 
-Основные команды доступны с клавиатуры:
+The main keyboard shortcuts are:
 
-| Действие | Клавиши |
+| Action | Keys |
 | --- | --- |
-| Пауза / продолжить | Пробел |
-| Предыдущий / следующий референс | ← / → |
-| Пропустить без отметки завершения | S |
-| Чёрно-белый режим | B |
-| Отразить по горизонтали / вертикали | H / V |
-| Повернуть на 90° | R |
-| Сетка | G |
-| Сбросить эффекты | Backspace |
-| Вписать / масштаб 100% | Ctrl+0 / Ctrl+1 |
-| Полный экран | F11 |
-| Настройки | Ctrl+, |
-| Поверх остальных окон | A |
+| Pause / resume | Space |
+| Previous / next reference | ← / → |
+| Skip without marking complete | S |
+| Black-and-white mode | B |
+| Flip horizontally / vertically | H / V |
+| Rotate 90° | R |
+| Grid | G |
+| Reset effects | Backspace |
+| Fit / 100% zoom | Ctrl+0 / Ctrl+1 |
+| Full screen | F11 |
+| Settings | Ctrl+, |
+| Always on top | A |
 
-В приложении доступны коллекции, предпросмотр, история, календарь практики,
-цели на день, перерывы и звуковой отсчёт. Минимальный размер окна — 360×440.
-Windows-сборка читает JPEG, PNG, BMP, GIF, WebP, TIFF, ICO, SVG и HEIC/HEIF с HEVC.
-GIF отображается статично; AVIF зависит от доступного декодера.
+The app includes collections, previews, history, a practice calendar, daily
+goals, breaks, and countdown sounds. The minimum window size is 360×440.
+The Windows build reads JPEG, PNG, BMP, GIF, WebP, TIFF, ICO, SVG, and HEIC/HEIF
+with HEVC. GIF images are static; AVIF support depends on the available decoder.
 
-Интерфейс поддерживает 22 языка. Часть переводов выполнена машинно;
-для непереведённых строк используется английский текст.
+The interface supports 22 languages. Some translations are machine-generated;
+untranslated strings use English text.
 
-## Найдите инструкции
+## Find instructions
 
-- [Сайты, скачивание и сохранённые сеты](docs/online-sources.md).
-- [Portable-версия, данные и обновление](docs/portable.md).
-- [Сессия, панели и управление](docs/interface.md).
-- [Сборка из исходников](docs/build.md).
-- [История изменений](CHANGELOG.md).
-- [Архитектура](docs/architecture.md).
-- [Как внести изменения](CONTRIBUTING.md).
+The detailed guides are in Russian:
 
-## Лицензии
+- [Websites, downloads, and saved sets](docs/online-sources.md).
+- [Portable builds, data, and updates](docs/portable.md).
+- [Sessions, panels, and controls](docs/interface.md).
+- [Build from source](docs/build.md).
+- [Changelog](CHANGELOG.md).
+- [Architecture](docs/architecture.md).
+- [Contribute changes](CONTRIBUTING.md).
 
-Код приложения распространяется под [MIT](LICENSE).
-Библиотеки и шрифты сохраняют свои лицензии; см.
-[сторонние компоненты](THIRD_PARTY_NOTICES.md) и [исходники библиотек](licenses/SOURCES.md).
-Скачанные референсы принадлежат их авторам; сведения об источнике хранятся
-в `sources.json` рядом с изображениями.
+## Licenses
+
+The app code is distributed under the [MIT license](LICENSE).
+Libraries and fonts retain their own licenses; see
+[third-party components](THIRD_PARTY_NOTICES.md) and
+[library sources](licenses/SOURCES.md).
+Downloaded references belong to their authors. Source information is stored
+in `sources.json` beside the images.
