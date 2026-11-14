@@ -21,8 +21,8 @@ Item {
                     Accessible.name:modelData.name;onClicked:app.browseCollection=modelData.id
                     background:Rectangle {radius:8;color:parent.hovered?Theme.hover:"transparent";border.width:parent.visualFocus?2:0;border.color:Theme.accent}
                     contentItem:ColumnLayout {spacing:4
-                    Text {text:modelData.name;color:Theme.text;font.pixelSize:13;font.weight:Font.Medium;Layout.fillWidth:true;elide:Text.ElideMiddle}
-                    Text {text:Theme.count(modelData.count,"image","images_few","images")+(modelData.completed>0?" · ✓ "+modelData.completed:"");color:Theme.muted;font.pixelSize:11;Layout.fillWidth:true;elide:Text.ElideRight}
+                    Text {text:modelData.name;color:Theme.text;font.pixelSize:14;font.weight:Font.Medium;Layout.fillWidth:true;elide:Text.ElideMiddle}
+                    Text {text:Theme.count(modelData.count,"image","images_few","images")+(modelData.completed>0?" · ✓ "+modelData.completed:"");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true;elide:Text.ElideRight}
                 }
                 }
                 IconButton {id:actions;width:28;height:32;iconName:"ellipsis";hint:Theme.t("Collection actions");onClicked:menu.open()
@@ -37,7 +37,7 @@ Item {
             ToolTip.visible:hover.hovered;ToolTip.delay:800;ToolTip.text:modelData.path
             HoverHandler {id:hover}
         }
-        Text {visible:list.count===0;anchors.centerIn:parent;width:parent.width-24;text:Theme.t("Add folders to build your collection");color:Theme.muted;font.pixelSize:13;wrapMode:Text.WordWrap;horizontalAlignment:Text.AlignHCenter}
+        Text {visible:list.count===0;anchors.centerIn:parent;width:parent.width-24;text:Theme.t("Add folders to build your collection");color:Theme.muted;font.pixelSize:14;wrapMode:Text.WordWrap;horizontalAlignment:Text.AlignHCenter}
     }
     Dialog {id:renameDialog;parent:Overlay.overlay;anchors.centerIn:parent;modal:true;width:Math.min(360,(Overlay.overlay?Overlay.overlay.width:root.width)-16);property string collectionId:""
         title:Theme.t("Rename collection")

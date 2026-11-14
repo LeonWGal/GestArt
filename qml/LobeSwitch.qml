@@ -3,7 +3,7 @@ import QtQuick.Controls
 Switch {
     id: control
     padding:0;spacing:12;implicitHeight:Math.max(32,contentItem.implicitHeight+8)
-    font.family:Theme.font;font.pixelSize:13;hoverEnabled:true
+    font.family:Theme.font;font.pixelSize:14;hoverEnabled:true
     indicator:Rectangle {
         x:control.mirrored?control.width-width:0;y:(control.height-height)/2;width:40;height:24;radius:12
         color:control.checked?Theme.accent:control.down?Theme.muted:Theme.hover

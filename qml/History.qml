@@ -14,7 +14,7 @@ Item {
     function eventDate(event){if(!event.at)return Theme.t("Undated");const date=new Date(event.at);return isNaN(date.getTime())?Theme.t("Undated"):date.toLocaleDateString(Qt.locale(i18n.language),"d MMM")+" · "+Qt.formatTime(date,"hh:mm")}
     ColumnLayout {anchors.fill:parent;anchors.margins:root.width<600?16:24;spacing:12
         RowLayout {Layout.fillWidth:true
-            Text {Layout.fillWidth:true;text:root.entries.length+" / "+app.history.length+" · "+Theme.t("History");color:Theme.muted;font.pixelSize:13;elide:Text.ElideRight}
+            Text {Layout.fillWidth:true;text:root.entries.length+" / "+app.history.length+" · "+Theme.t("History");color:Theme.muted;font.pixelSize:12;elide:Text.ElideRight}
             IconButton {iconName:"download";hint:Theme.t("Import previous data");onClicked:app.importLegacy()}
             IconButton {iconName:"trash-2";danger:true;hint:Theme.t("Clear history");onClicked:clearDialog.open()}
         }
@@ -35,8 +35,8 @@ Item {
                         ArtIcon {anchors.centerIn:parent;name:modelData.kind==="completed"?"circle-check":modelData.kind==="skipped"?"skip-forward":"image";tint:modelData.kind==="completed"?Theme.accentText:Theme.muted;width:18;height:18}
                     }
                     ColumnLayout {Layout.fillWidth:true;spacing:4
-                        Text {Layout.fillWidth:true;text:modelData.path.split(/[\\/]/).pop();color:Theme.text;font.pixelSize:13;elide:Text.ElideMiddle}
-                        Text {Layout.fillWidth:true;text:root.kindLabel(modelData)+(modelData.kind==="completed"?" · "+Theme.duration(modelData.duration):"")+" · "+root.eventDate(modelData);color:Theme.muted;font.pixelSize:11;elide:Text.ElideRight}
+                        Text {Layout.fillWidth:true;text:modelData.path.split(/[\\/]/).pop();color:Theme.text;font.pixelSize:14;elide:Text.ElideMiddle}
+                        Text {Layout.fillWidth:true;text:root.kindLabel(modelData)+(modelData.kind==="completed"?" · "+Theme.duration(modelData.duration):"")+" · "+root.eventDate(modelData);color:Theme.muted;font.pixelSize:12;elide:Text.ElideRight}
                     }
                     ArtIcon {name:"arrow-up-right";width:16;height:16;tint:Theme.muted}
                 }
@@ -44,10 +44,10 @@ Item {
             }
             LobeEmpty {visible:list.count===0;anchors.centerIn:parent;width:Math.min(320,parent.width-16);showIcon:list.height>=180;title:Theme.t(app.history.length?"No matching references":"Your history will appear here");description:Theme.t(app.history.length?"Try another search or reset filters.":"Viewed references and completed studies appear here.");actionText:list.height>=180?Theme.t(app.history.length?"Reset filters":"Home"):"";onActionRequested:{if(app.history.length){search.clear();root.kind="all"}else app.page="home"}}
         }
-        Text {visible:app.history.length>=2000;Layout.fillWidth:true;text:Theme.t("Showing the latest 2000 events.");color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+        Text {visible:app.history.length>=2000;Layout.fillWidth:true;text:Theme.t("Showing the latest 2000 events.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
     }
     Dialog {id:clearDialog;parent:Overlay.overlay;anchors.centerIn:parent;width:Math.min(400,Overlay.overlay.width-16);modal:true;title:Theme.t("Clear history");implicitHeight:200;height:Math.min(implicitHeight,Overlay.overlay.height-16)
-        contentItem:ScrollView {clip:true;contentWidth:availableWidth;Text {width:clearDialog.availableWidth;text:Theme.t("Clear history for selected folders?");color:Theme.text;wrapMode:Text.WordWrap;font.pixelSize:13}}
+        contentItem:ScrollView {clip:true;contentWidth:availableWidth;Text {width:clearDialog.availableWidth;text:Theme.t("Clear history for selected folders?");color:Theme.text;wrapMode:Text.WordWrap;font.pixelSize:14}}
         footer:RowLayout {spacing:8
             LobeButton {text:Theme.t("Cancel");onClicked:clearDialog.reject()}
             LobeButton {text:Theme.t("Clear history");iconName:"trash-2";danger:true;Layout.fillWidth:true;font.pixelSize:12;leftPadding:8;rightPadding:8;enabled:app.collections.some(c=>c.selected);onClicked:clearDialog.accept()}

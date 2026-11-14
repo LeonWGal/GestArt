@@ -62,9 +62,9 @@ python -m aqt install-qt windows desktop 6.8.3 win64_msvc2022_64 `
 
 В `dist` появляются:
 
-- `GestArt-Ultimate-1.8.0-windows-x64-portable.exe` — загрузочный EXE с ZIP
+- `GestArt-Ultimate-1.8.5-windows-x64-portable.exe` — загрузочный EXE с ZIP
   внутри, проверкой SHA-256 и запуском Qt-приложения.
-- `GestArt-Ultimate-1.8.0-windows-x64-portable.zip` — программа с библиотеками,
+- `GestArt-Ultimate-1.8.5-windows-x64-portable.zip` — программа с библиотеками,
   `Start.cmd`, лицензиями, документацией и `portable.flag`.
 - `SHA256SUMS.txt` — контрольные суммы EXE и ZIP.
 

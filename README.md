@@ -1,4 +1,4 @@
-# GestArt Ultimate 1.8.0
+# GestArt Ultimate 1.8.5
 
 [English](README.md) · [Русский](README.ru.md)
 
@@ -69,7 +69,7 @@ Ultimate continues the drawing practice app. The timer, breaks, grid, image
 effects, and support for your own images remain part of each session.
 The main differences from version 0.9.8 are:
 
-| Feature | GestArt 0.9.8 | GestArt Ultimate 1.8.0 |
+| Feature | GestArt 0.9.8 | GestArt Ultimate 1.8.5 |
 | --- | --- | --- |
 | App foundation | Python and PyQt6 | C++20 and Qt Quick |
 | Reference sources | Local folders | Local folders and downloads from Quickposes, Proko, Pose Library, and SketchDaily |
@@ -87,9 +87,9 @@ Prebuilt downloads are for **Windows 10 (1809+) / Windows 11 x64**:
 
 | File | How to start |
 | --- | --- |
-| [Portable EXE](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.exe) | Save it in a writable folder and open it. No installation is needed. |
-| [Portable ZIP](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/GestArt-Ultimate-1.8.0-windows-x64-portable.zip) | Extract the entire archive and open `Start.cmd`. |
-| [SHA-256](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.0/SHA256SUMS.txt) | Compare the checksum for your download. |
+| [Portable EXE](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.5/GestArt-Ultimate-1.8.5-windows-x64-portable.exe) | Save it in a writable folder and open it. No installation is needed. |
+| [Portable ZIP](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.5/GestArt-Ultimate-1.8.5-windows-x64-portable.zip) | Extract the entire archive and open `Start.cmd`. |
+| [SHA-256](https://github.com/LeonWGal/GestArt/releases/download/ultimate-v1.8.5/SHA256SUMS.txt) | Compare the checksum for your download. |
 
 The portable EXE includes the app and its libraries. On first launch, it
 extracts the libraries to a local cache. This launcher requires .NET Framework
@@ -136,10 +136,17 @@ or restricted materials.
 
 ## Open a website inside the app
 
-Choose a website on the **Online viewing** page. Its settings and timer run
-inside the built-in browser. When the pointer leaves the window, the top
-panel collapses and frees space for the image. Move the pointer back to
-restore the controls. **Download references** opens downloads for that website.
+Choose a website on the **Online viewing** page. YouTube includes video search,
+GES DRAW PARTY, and two playlists with previews. **Return to website** reopens
+the current page without reloading it.
+
+Use the sliders button to open the browser controls. The panel closes when you
+resize the window and stays hidden when the pointer returns. Press **Ctrl+L**
+to enter a YouTube link or search. **Video fills window** expands the player
+inside the window; press **Esc** to return. The pin button keeps GestArt above
+other windows. Browser windows can be reduced to 280×160.
+
+For reference downloads, use **Download references** in the **…** menu.
 
 To practice with GestArt's timer, grid, mirroring, and statistics, download a
 set and start it from **Saved sets**.

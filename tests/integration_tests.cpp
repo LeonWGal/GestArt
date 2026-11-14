@@ -163,7 +163,7 @@ private slots:
         QTemporaryDir dir;QFile file(dir.filePath("settings.json"));QVERIFY(file.open(QIODevice::WriteOnly));
         file.write("{\"theme\":\"charoite\"}");file.close();
         auto p=loadPreferences(dir.path());QCOMPARE(p.value("theme_base").toString(),QString("black"));
-        QCOMPARE(p.value("theme_accent").toString(),QString("charoite"));QCOMPARE(p.value("schema").toInt(),2);
+        QCOMPARE(p.value("theme_accent").toString(),QString("purple"));QCOMPARE(p.value("theme_accent_group").toString(),QString("lobe"));QCOMPARE(p.value("schema").toInt(),2);
         QVERIFY(file.open(QIODevice::WriteOnly));file.write("{\"theme\":\"calcite\"}");file.close();
         p=loadPreferences(dir.path());QCOMPARE(p.value("theme_base").toString(),QString("white"));QCOMPARE(p.value("theme_white_tone").toString(),QString("paper"));
         p["theme_accent_group"]="lobe";p["theme_accent"]="blue";p["theme_black_tone"]="ink";normalizeTheme(p);

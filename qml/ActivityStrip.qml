@@ -10,7 +10,7 @@ GridLayout {
                     ArtIcon {visible:root.width>=340;name:modelData.icon;width:14;height:14;tint:Theme.muted}
                     Text {text:modelData.value;color:Theme.text;font.pixelSize:root.width<340?16:20;font.weight:Font.Medium;Layout.fillWidth:true;elide:Text.ElideRight}
                 }
-                Text {text:modelData.label;color:Theme.muted;font.pixelSize:11;Layout.fillWidth:true;elide:Text.ElideRight}
+                Text {text:modelData.label;color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true;elide:Text.ElideRight}
             }
         }
     }

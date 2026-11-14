@@ -27,22 +27,26 @@ void normalizeTheme(QVariantMap& p, bool migrateLegacy) {
         p["theme_follow_system"] = old == "system";
         p["theme_white_tone"] = old == "calcite" ? "paper" : "neutral";
         p["theme_black_tone"] = "neutral";
-        p["theme_accent_group"] = "stones";
-        const QHash<QString,QString> legacy{{"charoite","charoite"},{"emerald","emerald"},
-            {"ruby","ruby"},{"sapphire","sapphire"},{"jasper","carnelian"}};
-        p["theme_accent"] = legacy.value(old,"amber");
+        p["theme_accent_group"] = "lobe";
+        p["theme_accent"] = "purple";
     }
     if (!QStringList{"white","black"}.contains(p.value("theme_base").toString())) p["theme_base"] = "black";
     for (const QString base : {QString("white"),QString("black")}) {
         const QString field = "theme_" + base + "_tone";
         p[field] = findOption(base,p.value(field).toString()).value("key","neutral");
     }
-    if (!QStringList{"lobe","stones"}.contains(p.value("theme_accent_group").toString())) p["theme_accent_group"] = "stones";
-    if(p.value("theme_accent_group").toString()=="stones"){
-        const QHash<QString,QString> aliases{{"malachite","emerald"},{"rhodonite","tourmaline"},{"lapis","sapphire"},{"jasper","carnelian"}};
-        const auto key=p.value("theme_accent").toString();if(aliases.contains(key))p["theme_accent"]=aliases.value(key);
+    p["theme_accent_group"] = "lobe";
+    static const QHash<QString,QString> stoneToLobe{
+        {"charoite","purple"},{"amethyst","purple"},{"emerald","green"},{"malachite","green"},
+        {"sapphire","blue"},{"lapis","blue"},{"amber","gold"},{"citrine","yellow"},
+        {"aquamarine","cyan"},{"tourmaline","magenta"},{"rhodonite","magenta"},{"garnet","red"},
+        {"ruby","red"},{"carnelian","volcano"},{"jasper","volcano"},{"topaz","cyan"}
+    };
+    const QString accentKey = p.value("theme_accent").toString();
+    if (stoneToLobe.contains(accentKey)) {
+        p["theme_accent"] = stoneToLobe.value(accentKey);
     }
-    p["theme_accent"] = findOption(p.value("theme_accent_group").toString(),p.value("theme_accent").toString()).value("key","amber");
+    p["theme_accent"] = findOption("lobe",p.value("theme_accent").toString()).value("key","purple");
     p["schema"] = 2;
     // Retain a compatible field for older versions and legacy export.
     p["theme"] = p.value("theme_follow_system").toBool() ? "system" : p.value("theme_base").toString() == "white" ? "light" : "dark";
@@ -50,7 +54,7 @@ void normalizeTheme(QVariantMap& p, bool migrateLegacy) {
 QVariantMap themePalette(const QVariantMap& p, bool dark) {
     const QString base = dark ? "black" : "white";
     auto colors = findOption(base,p.value("theme_"+base+"_tone").toString()).value("colors").toMap();
-    const auto accent = findOption(p.value("theme_accent_group").toString(),p.value("theme_accent").toString());
+    const auto accent = findOption("lobe",p.value("theme_accent").toString());
     colors["accent"] = accent.value(base);
     colors["accentText"] = accent.value(base+"Text",accent.value(base));
     colors["accentName"] = accent.value("label");

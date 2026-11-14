@@ -24,7 +24,7 @@ ColumnLayout {
     }
     LobeButton {visible:root.showFolders;objectName:root.namePrefix+"FoldersButton";Layout.fillWidth:true;implicitHeight:root.compact?32:36;leftPadding:8;rightPadding:8;font.pixelSize:12;iconName:"folder";text:Theme.t("Session folders")+" · "+root.selectedFolders;onClicked:root.foldersExpanded=!root.foldersExpanded}
     ColumnLayout {visible:root.showFolders&&root.foldersExpanded;Layout.fillWidth:true;spacing:4
-        Text {visible:app.active;Layout.fillWidth:true;text:Theme.t("For the next session");color:Theme.muted;font.pixelSize:11}
+        Text {visible:app.active;Layout.fillWidth:true;text:Theme.t("For the next session");color:Theme.muted;font.pixelSize:12}
         ListView {objectName:root.namePrefix+"FolderList";Layout.fillWidth:true;Layout.preferredHeight:Math.min(160,app.collections.length*36);clip:true;spacing:4;model:app.collections
             ScrollBar.vertical:ScrollBar {policy:ScrollBar.AsNeeded}
             delegate:Button {required property var modelData;objectName:root.namePrefix+"Folder"+modelData.id;width:ListView.view.width;height:32;hoverEnabled:true
@@ -34,7 +34,7 @@ ColumnLayout {
                 contentItem:RowLayout {spacing:8
                     ArtIcon {name:modelData.selected?"circle-check":"circle";tint:modelData.selected?Theme.accentText:Theme.muted;width:16;height:16}
                     Text {text:modelData.name;color:Theme.text;font.pixelSize:12;Layout.fillWidth:true;elide:Text.ElideMiddle}
-                    Text {text:modelData.count;color:Theme.muted;font.pixelSize:11}
+                    Text {text:modelData.count;color:Theme.muted;font.pixelSize:12}
                 }
             }
         }

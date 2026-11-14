@@ -19,7 +19,8 @@ QtObject {
     readonly property color overlay: Qt.rgba(panel.r,panel.g,panel.b,0.96)
     readonly property color danger: dark ? "#ee9e9e" : "#a02d2d"
     readonly property int radius: 12
-    readonly property string font: "Inter"
+    readonly property string font: "Geist"
+    readonly property string fontMono: "Geist Mono"
     function t(text) { const language = i18n.language; return i18n.s(text); }
     function duration(ms) {const seconds=Math.max(0,Math.round((ms||0)/1000));if(seconds<60)return seconds+" "+t("sec");const minutes=Math.floor(seconds/60);if(minutes<60)return minutes+" "+t("min");return Math.floor(minutes/60)+" "+t("h")+(minutes%60?" "+minutes%60+" "+t("min"):"")}
     function dateLabel(iso,format) {if(!iso)return "";const parts=iso.split("-");return new Date(Number(parts[0]),Number(parts[1])-1,Number(parts[2]),12).toLocaleDateString(Qt.locale(i18n.language),format||"d MMM")}

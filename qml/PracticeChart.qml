@@ -22,9 +22,9 @@ Rectangle {
             }
         }
         RowLayout {Layout.fillWidth:true
-            Text {text:app.practice.chart&&app.practice.chart.length?Theme.dateLabel(app.practice.chart[0].date,"d MMM"):"";color:Theme.muted;font.pixelSize:11}
+            Text {text:app.practice.chart&&app.practice.chart.length?Theme.dateLabel(app.practice.chart[0].date,"d MMM"):"";color:Theme.muted;font.pixelSize:12}
             Item {Layout.fillWidth:true}
-            Text {text:Theme.t("Today");color:Theme.muted;font.pixelSize:11}
+            Text {text:Theme.t("Today");color:Theme.muted;font.pixelSize:12}
         }
     }
 }

@@ -4,7 +4,7 @@ ComboBox {
     id:control
     implicitHeight:36;implicitWidth:160
     leftPadding:mirrored?36:12;rightPadding:mirrored?12:36
-    font.family:Theme.font;font.pixelSize:13;hoverEnabled:true
+    font.family:Theme.font;font.pixelSize:14;hoverEnabled:true
     palette.text:Theme.text;palette.buttonText:Theme.text;palette.base:Theme.raised
     Accessible.name:displayText
     contentItem:Text {text:control.displayText;font:control.font;color:Theme.text;verticalAlignment:Text.AlignVCenter;elide:Text.ElideRight}

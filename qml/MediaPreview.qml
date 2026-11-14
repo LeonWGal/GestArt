@@ -31,9 +31,9 @@ Popup {
         Rectangle {Layout.fillWidth:true;implicitHeight:60;color:Theme.panel
             RowLayout {anchors.fill:parent;anchors.margins:12;spacing:8
                 IconButton {objectName:"closePreviewButton";iconName:"arrow-left";hint:Theme.t("Close preview")+" · Esc";onClicked:root.close()}
-                ColumnLayout {Layout.fillWidth:true;spacing:3
-                    Text {text:Theme.t("Preview");color:Theme.muted;font.pixelSize:11}
-                    Text {Layout.fillWidth:true;text:app.previewPath.split(/[\\/]/).pop();elide:Text.ElideMiddle;color:Theme.text;font.pixelSize:13;font.weight:Font.Medium}
+                ColumnLayout {Layout.fillWidth:true;spacing:4
+                    Text {text:Theme.t("Preview");color:Theme.muted;font.pixelSize:12}
+                    Text {Layout.fillWidth:true;text:app.previewPath.split(/[\\/]/).pop();elide:Text.ElideMiddle;color:Theme.text;font.pixelSize:14;font.weight:Font.Medium}
                 }
                 Text {text:(app.previewIndex+1)+" / "+app.previewCount;color:Theme.muted;font.pixelSize:12}
                 IconButton {iconName:"x";hint:Theme.t("Close preview");onClicked:root.close()}
@@ -57,7 +57,7 @@ Popup {
             LobeEmpty {anchors.centerIn:parent;width:Math.min(320,parent.width-24);visible:art.status===Image.Error;iconName:"image";title:Theme.t("Preview unavailable");description:app.previewPath}
         }
         Rectangle {Layout.fillWidth:true;implicitHeight:root.width<520?62:82;color:Theme.panel
-            ColumnLayout {anchors.centerIn:parent;spacing:6
+            ColumnLayout {anchors.centerIn:parent;spacing:8
                 RowLayout {Layout.alignment:Qt.AlignHCenter;spacing:8
                     IconButton {objectName:"previewPrevious";iconName:"chevron-left";hint:Theme.t("Previous");enabled:app.previewIndex>0;onClicked:app.stepPreview(-1)}
                     IconButton {iconName:"zoom-out";hint:Theme.t("Zoom out");onClicked:root.zoomAt(1/1.2,viewport.width/2,viewport.height/2)}
@@ -66,7 +66,7 @@ Popup {
                     IconButton {iconName:"rotate-cw";hint:Theme.t("Rotate 90°");onClicked:{root.angle=(root.angle+90)%360;root.panX=0;root.panY=0}}
                     IconButton {objectName:"previewNext";iconName:"chevron-right";hint:Theme.t("Next");enabled:app.previewIndex+1<app.previewCount;onClicked:app.stepPreview(1)}
                 }
-                Text {visible:root.width>=520;text:Theme.t("Preview controls");color:Theme.muted;font.pixelSize:11;Layout.alignment:Qt.AlignHCenter}
+                Text {visible:root.width>=520;text:Theme.t("Preview controls");color:Theme.muted;font.pixelSize:12;Layout.alignment:Qt.AlignHCenter}
             }
         }
     }

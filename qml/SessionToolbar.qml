@@ -17,7 +17,7 @@ GlassPanel {
     width:Math.min(availableWidth,420)
     height:groups.implicitHeight+16;radius:16
     ColumnLayout {
-        id:groups;objectName:"sessionToolbarContent";anchors.fill:parent;anchors.margins:8;spacing:6
+        id:groups;objectName:"sessionToolbarContent";anchors.fill:parent;anchors.margins:8;spacing:8
         RowLayout {id:playback;objectName:"sessionNavigationRow";Layout.fillWidth:true;spacing:4
             LobeButton {objectName:"sessionPreviousButton";Layout.fillWidth:true;Layout.preferredWidth:1;implicitHeight:36;quiet:true;iconName:"chevron-left";Accessible.name:Theme.t("Previous image")+" · ←";enabled:app.canPrevious;onClicked:app.previous()}
             LobeButton {objectName:"sessionPlayButton";Layout.fillWidth:true;Layout.preferredWidth:1;implicitHeight:36;quiet:true;iconName:app.paused||app.state==="review"||!app.active?"play":"pause";Accessible.name:Theme.t(app.paused?"Resume":app.state==="review"?"Return to session":app.active?"Pause":"Start session")+" · Space";enabled:(app.active||app.sessionImageCount>0)&&!app.scanning;onClicked:app.togglePause()}

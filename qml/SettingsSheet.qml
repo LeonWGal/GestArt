@@ -4,12 +4,27 @@ import QtQuick.Layouts
 Drawer {
     id:sheet;objectName:"settingsDrawer";edge:Qt.RightEdge;modal:true;dim:true
     property var draft:({})
+    property var originalSettings:({})
     property int section:0
     readonly property bool compact:width<440||height<360
     readonly property int inset:compact?12:24
     readonly property var sections:["Session","Appearance","Window","Goal","Data"]
-    function edit(key,value) {let next=Object.assign({},draft);next[key]=value;draft=next}
-    onAboutToShow:draft=Object.assign({},app.settings)
+    function edit(key,value) {
+        let next=Object.assign({},draft);
+        next[key]=value;
+        draft=next;
+        if(section===1) {
+            app.applySettings(next, true);
+        }
+    }
+    function editMultiple(map) {
+        let next=Object.assign({},draft,map);
+        draft=next;
+        if(section===1) {
+            app.applySettings(next, true);
+        }
+    }
+    onAboutToShow:{draft=Object.assign({},app.settings);originalSettings=Object.assign({},app.settings)}
     onSectionChanged:{if(scroll.contentItem)scroll.contentItem.contentY=0}
     enter:Transition {NumberAnimation {property:"position";from:0;to:1;duration:app.settings.reduce_motion?0:140;easing.type:Easing.OutCubic}}
     exit:Transition {NumberAnimation {property:"position";from:1;to:0;duration:app.settings.reduce_motion?0:100;easing.type:Easing.OutCubic}}
@@ -31,7 +46,7 @@ Drawer {
             ColumnLayout {width:sheet.width-2*sheet.inset;x:sheet.inset;spacing:24
                 ColumnLayout {visible:sheet.section===0;Layout.fillWidth:true;spacing:sheet.compact?12:24
                     Text {visible:!sheet.compact;text:Theme.t("Session rhythm");color:Theme.text;font.pixelSize:18;font.weight:Font.Medium}
-                    Text {visible:!sheet.compact;Layout.fillWidth:true;text:Theme.t("Next session")+" · "+Theme.sessionSummary(sheet.draft);color:Theme.accentText;font.pixelSize:13;wrapMode:Text.WordWrap}
+                    Text {visible:!sheet.compact;Layout.fillWidth:true;text:Theme.t("Next session")+" · "+Theme.sessionSummary(sheet.draft);color:Theme.accentText;font.pixelSize:14;wrapMode:Text.WordWrap}
                     LobeSegmented {Layout.fillWidth:true;accessibleLabel:Theme.t("Time per image");value:sheet.draft.unlimited_time?null:sheet.draft.display_time
                         options:[30,60,120,300].map(n=>({value:n,label:n<60?n+" "+Theme.t("sec"):n/60+" "+Theme.t("min")}));onSelected:n=>{sheet.edit("display_time",n);sheet.edit("unlimited_time",false)}
                     }
@@ -46,7 +61,7 @@ Drawer {
                     Text {Layout.fillWidth:true;text:Theme.t("Timing changes apply to the next session.");color:Theme.muted;wrapMode:Text.WordWrap;font.pixelSize:12}
                 }
                 ColumnLayout {visible:sheet.section===1;Layout.fillWidth:true;spacing:16
-                    ThemePicker {Layout.fillWidth:true;draft:sheet.draft;onEdited:(key,value)=>sheet.edit(key,value)}
+                    ThemePicker {Layout.fillWidth:true;draft:sheet.draft;onEdited:(key,value)=>sheet.edit(key,value);onEditedMultiple:map=>sheet.editMultiple(map)}
                     Rectangle {Layout.fillWidth:true;height:1;color:Theme.border}
                     Text {text:Theme.t("Session panels");color:Theme.text;font.pixelSize:18;font.weight:Font.Medium;Layout.fillWidth:true;wrapMode:Text.WordWrap}
                     LobeSwitch {Layout.fillWidth:true;text:Theme.t("Translucent session panels");checked:sheet.draft.session_glass||false;onToggled:sheet.edit("session_glass",checked)}
@@ -55,7 +70,7 @@ Drawer {
                     Text {Layout.fillWidth:true;text:Theme.t("Transparency affects the panel background. Text stays sharp.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                     LobeSwitch {Layout.fillWidth:true;text:Theme.t("Reduce motion");checked:sheet.draft.reduce_motion||false;onToggled:sheet.edit("reduce_motion",checked)}
                     ColumnLayout {Layout.fillWidth:true;spacing:8
-                        Text {text:Theme.t("Interface language");color:Theme.muted;font.pixelSize:13}
+                        Text {text:Theme.t("Interface language");color:Theme.muted;font.pixelSize:14}
                         LobeComboBox {Layout.fillWidth:true;Accessible.name:Theme.t("Interface language");model:i18n.languages;textRole:"name";valueRole:"code";currentIndex:i18n.languages.findIndex(item=>item.code===sheet.draft.language);onActivated:sheet.edit("language",currentValue)}
                     }
                 }
@@ -68,13 +83,13 @@ Drawer {
                     LobeSwitch {Layout.fillWidth:true;text:Theme.t("Show timer");checked:sheet.draft.show_timer||false;onToggled:sheet.edit("show_timer",checked)}
                     LobeSwitch {Layout.fillWidth:true;text:Theme.t("Hide timer when pointer leaves");checked:sheet.draft.hide_timer_on_leave||false;onToggled:sheet.edit("hide_timer_on_leave",checked)}
                     ColumnLayout {Layout.fillWidth:true;spacing:8
-                        Text {text:Theme.t("Timer position");color:Theme.muted;font.pixelSize:13}
+                        Text {text:Theme.t("Timer position");color:Theme.muted;font.pixelSize:14}
                         LobeComboBox {Layout.fillWidth:true;textRole:"label";valueRole:"key";Accessible.name:Theme.t("Timer position");model:[{key:"Left",label:Theme.t("Left")},{key:"Center",label:Theme.t("Center")},{key:"Right",label:Theme.t("Right")}];currentIndex:model.findIndex(v=>v.key===sheet.draft.timer_position);onActivated:sheet.edit("timer_position",currentValue)}
                     }
                 }
                 ColumnLayout {visible:sheet.section===3;Layout.fillWidth:true;spacing:16
                     Text {text:Theme.t("A goal for your daily practice");color:Theme.text;font.pixelSize:18;font.weight:Font.Medium;Layout.fillWidth:true;wrapMode:Text.WordWrap}
-                    Text {text:Theme.t("Choose time, studies or both. You can change your goal whenever you need.");color:Theme.muted;font.pixelSize:13;Layout.fillWidth:true;wrapMode:Text.WordWrap}
+                    Text {text:Theme.t("Choose time, studies or both. You can change your goal whenever you need.");color:Theme.muted;font.pixelSize:14;Layout.fillWidth:true;wrapMode:Text.WordWrap}
                     LobeComboBox {Layout.fillWidth:true;textRole:"label";valueRole:"key";Accessible.name:Theme.t("Today's goal");model:[{key:"time",label:Theme.t("Practice time")},{key:"studies",label:Theme.t("Completed studies")},{key:"both",label:Theme.t("Time and studies")}];currentIndex:model.findIndex(v=>v.key===sheet.draft.daily_goal_mode);onActivated:sheet.edit("daily_goal_mode",currentValue)}
                     ValueField {visible:sheet.draft.daily_goal_mode!=="studies";Layout.fillWidth:true;label:Theme.t("Minutes per day");minimum:1;maximum:240;sliderMaximum:60;allowUnlimited:false;value:sheet.draft.daily_goal_minutes||15;onEdited:(n,u)=>sheet.edit("daily_goal_minutes",n)}
                     ValueField {visible:sheet.draft.daily_goal_mode!=="time";Layout.fillWidth:true;label:Theme.t("Studies per day");minimum:1;maximum:1000;sliderMaximum:50;allowUnlimited:false;value:sheet.draft.daily_goal_studies||10;onEdited:(n,u)=>sheet.edit("daily_goal_studies",n)}
@@ -98,7 +113,19 @@ Drawer {
         }
         Rectangle {Layout.fillWidth:true;height:1;color:Theme.border}
         RowLayout {Layout.fillWidth:true;Layout.margins:sheet.compact?8:16;spacing:8
-            LobeButton {objectName:"settingsCancelButton";text:sheet.width<300?"":Theme.t("Cancel");Accessible.name:Theme.t("Cancel");iconName:sheet.width<300?"x":"";implicitHeight:sheet.compact?32:40;onClicked:sheet.close()}
+            LobeButton {
+                objectName:"settingsCancelButton"
+                text:sheet.width<300?"":Theme.t("Cancel")
+                Accessible.name:Theme.t("Cancel")
+                iconName:sheet.width<300?"x":""
+                implicitHeight:sheet.compact?32:40
+                onClicked:{
+                    if(sheet.section===1 && JSON.stringify(sheet.draft)!==JSON.stringify(sheet.originalSettings)) {
+                        app.applySettings(sheet.originalSettings, true);
+                    }
+                    sheet.close();
+                }
+            }
             LobeButton {objectName:"settingsSaveButton";text:Theme.t("Save");iconName:"circle-check";primary:true;Layout.fillWidth:true;implicitHeight:sheet.compact?32:40;onClicked:{app.applySettings(sheet.draft);sheet.close()}}
         }
     }

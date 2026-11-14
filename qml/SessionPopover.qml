@@ -38,15 +38,15 @@ Popup {
                 contentItem:RowLayout {spacing:8
                     ArtIcon {name:"folder";tint:Theme.muted;width:20;height:20}
                     ColumnLayout {Layout.fillWidth:true;spacing:4
-                        Text {text:Theme.t("Session folders");color:Theme.text;font.pixelSize:13}
+                        Text {text:Theme.t("Session folders");color:Theme.text;font.pixelSize:14}
                         Text {text:Theme.count(app.sessionImageCount,"image","images_few","images");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true;elide:Text.ElideRight}
                     }
                     ArtIcon {name:"chevron-right";width:16;height:16}
                 }
                 onClicked:{root.close();root.manageCollections()}
             }
-            LobeButton {objectName:"sessionModeButton";Layout.fillWidth:true;iconName:root.browsing?"timer":"scan-eye";text:Theme.t(root.browsing?"Timed practice":"Free view");font.pixelSize:13;enabled:app.sessionImageCount>0&&!app.scanning;onClicked:{root.close();app.startSession(!root.browsing)}}
-            LobeButton {objectName:"sessionStopButton";visible:app.active;Layout.fillWidth:true;quiet:true;iconName:"square";text:Theme.t("End session");font.pixelSize:13;onClicked:{root.close();app.stopSession()}}
+            LobeButton {objectName:"sessionModeButton";Layout.fillWidth:true;iconName:root.browsing?"timer":"scan-eye";text:Theme.t(root.browsing?"Timed practice":"Free view");font.pixelSize:14;enabled:app.sessionImageCount>0&&!app.scanning;onClicked:{root.close();app.startSession(!root.browsing)}}
+            LobeButton {objectName:"sessionStopButton";visible:app.active;Layout.fillWidth:true;quiet:true;iconName:"square";text:Theme.t("End session");font.pixelSize:14;onClicked:{root.close();app.stopSession()}}
         }
     }
 }

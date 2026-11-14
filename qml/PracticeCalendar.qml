@@ -16,9 +16,9 @@ Rectangle {
         Text {text:root.selectedDay?Theme.dateLabel(root.selectedDay.date,"d MMMM")+" · "+Theme.duration(root.selectedDay.durationMs)+" · "+Theme.count(root.selectedDay.studies,"study","studies_few","studies"):Theme.t("Choose a day to see your practice.");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true;wrapMode:Text.WordWrap}
         RowLayout {Layout.fillWidth:true;spacing:8
             Rectangle {width:12;height:12;radius:4;color:Theme.accentSoft;border.color:Theme.accent}
-            Text {text:Theme.t("Practiced");color:Theme.muted;font.pixelSize:11;Layout.fillWidth:true}
+            Text {text:Theme.t("Practiced");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true}
             Rectangle {width:12;height:12;radius:4;color:Theme.accent}
-            Text {text:Theme.t("Goal reached");color:Theme.muted;font.pixelSize:11;Layout.fillWidth:true}
+            Text {text:Theme.t("Goal reached");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true}
         }
     }
 }

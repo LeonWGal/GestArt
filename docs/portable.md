@@ -9,8 +9,8 @@ Portable-сборка предназначена для Windows 10 (1809+) / Win
 Перед запуском убедитесь, что установлен .NET Framework 4.8 или новее.
 Он нужен только загрузочному EXE; приложение внутри написано на C++/Qt.
 
-1. Скачайте `GestArt-Ultimate-1.8.0-windows-x64-portable.exe` со страницы
-   [выпуска 1.8.0](https://github.com/LeonWGal/GestArt/releases/tag/ultimate-v1.8.0).
+1. Скачайте `GestArt-Ultimate-1.8.5-windows-x64-portable.exe` со страницы
+   [выпуска 1.8.5](https://github.com/LeonWGal/GestArt/releases/tag/ultimate-v1.8.5).
 2. Сохраните EXE в папку, в которую можно записывать файлы.
 3. Откройте EXE и дождитесь подготовки файлов при первом запуске.
 
@@ -30,7 +30,7 @@ EXE запускается с правами обычного пользоват
 
 ## Запустите ZIP
 
-1. Скачайте `GestArt-Ultimate-1.8.0-windows-x64-portable.zip` из того же выпуска.
+1. Скачайте `GestArt-Ultimate-1.8.5-windows-x64-portable.zip` из того же выпуска.
 2. Распакуйте архив целиком в доступную для записи папку.
 3. Откройте `Start.cmd`.
 
@@ -60,7 +60,7 @@ EXE и ZIP используют разные имена папки данных.
 Для теста или независимого набора настроек передайте `--data-dir`:
 
 ```powershell
-./GestArt-Ultimate-1.8.0-windows-x64-portable.exe `
+./GestArt-Ultimate-1.8.5-windows-x64-portable.exe `
   --data-dir D:/GestArt-profile
 ```
 
@@ -75,7 +75,7 @@ EXE и ZIP используют разные имена папки данных.
 Откройте PowerShell в папке скачанного EXE и выполните:
 
 ```powershell
-Get-FileHash ./GestArt-Ultimate-1.8.0-windows-x64-portable.exe `
+Get-FileHash ./GestArt-Ultimate-1.8.5-windows-x64-portable.exe `
   -Algorithm SHA256
 ```
 

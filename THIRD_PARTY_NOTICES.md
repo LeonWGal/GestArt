@@ -11,6 +11,7 @@ own licenses:
 | libheif 1.23.6 | LGPL-3.0 | https://github.com/strukturag/libheif/tree/v1.23.6 |
 | libde265 1.1.3 | LGPL-3.0 | https://github.com/strukturag/libde265/tree/v1.1.3 |
 | FFmpeg n7.1 (Qt media backend) | LGPL-2.1-or-later and permissive licenses for included code | https://github.com/FFmpeg/FFmpeg/tree/n7.1 |
+| Geist and Geist Mono | SIL Open Font License 1.1 | https://github.com/vercel/geist-font |
 | Inter | SIL Open Font License 1.1 | https://github.com/rsms/inter |
 | Noto Sans Arabic | SIL Open Font License 1.1 | https://github.com/google/fonts/tree/main/ofl/notosansarabic |
 | Lucide icons | ISC, with inherited Feather portions under MIT | https://github.com/lucide-icons/lucide |

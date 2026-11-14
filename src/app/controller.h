@@ -166,7 +166,7 @@ public:
     Q_INVOKABLE void loadError(quint64 id);
     Q_INVOKABLE void openSettings();
     Q_INVOKABLE void closeSettings();
-    Q_INVOKABLE void applySettings(const QVariantMap& settings);
+    Q_INVOKABLE void applySettings(const QVariantMap& settings, bool silent = false);
     Q_INVOKABLE void setSearch(const QString& query);
     Q_INVOKABLE void setEffect(const QString& effect);
     Q_INVOKABLE void resetEffects();

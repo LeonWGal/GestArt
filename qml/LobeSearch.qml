@@ -4,7 +4,7 @@ TextField {
     id:root
     readonly property bool rtl:i18n.rtl
     signal cleared()
-    implicitHeight:36;font.family:Theme.font;font.pixelSize:13
+    implicitHeight:36;font.family:Theme.font;font.pixelSize:14
     Accessible.name:placeholderText
     color:Theme.text;placeholderTextColor:Theme.subtle;selectByMouse:true
     leftPadding:root.rtl?32:36;rightPadding:root.rtl?36:32

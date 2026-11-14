@@ -1,5 +1,7 @@
 // Keep the live site's image and timer running; restore its DOM unchanged on return.
 (function () {
+    // Video pages keep their native player visible when the pointer leaves GestArt.
+    if (/(^|\.)youtube\.com$/i.test(location.hostname) || location.hostname === 'youtu.be') return;
     let hidden = false;
     const frame = document.createElement('div');
     frame.id = 'gestart-focus';

@@ -113,17 +113,17 @@ Drawer {
                 LobeNotice {visible:online.error!=="";Layout.fillWidth:true;text:Theme.t(online.error)}
                 RowLayout {Layout.fillWidth:true
                     Text {Layout.fillWidth:true;text:Theme.t("2. Choose sets");color:Theme.text;font.pixelSize:14;font.weight:Font.Medium}
-                    LobeButton {text:Theme.t("Select all");quiet:true;implicitHeight:28;font.pixelSize:11;enabled:!online.busy&&!downloads.running;onClicked:sheet.selectedSets=online.sets.map(s=>s.id)}
+                    LobeButton {text:Theme.t("Select all");quiet:true;implicitHeight:28;font.pixelSize:12;enabled:!online.busy&&!downloads.running;onClicked:sheet.selectedSets=online.sets.map(s=>s.id)}
                 }
                 LobeSearch {id:packSearch;visible:online.sets.length>7;Layout.fillWidth:true;placeholderText:Theme.t("Search sets")}
                 ListView {
-                    objectName:"onlineSetPicker";Layout.fillWidth:true;Layout.preferredHeight:Math.min(280,Math.max(76,online.sets.length*82));clip:true;spacing:6
+                    objectName:"onlineSetPicker";Layout.fillWidth:true;Layout.preferredHeight:Math.min(280,Math.max(76,online.sets.length*82));clip:true;spacing:8
                     model:online.sets.filter(s=>sheet.label(s).toLowerCase().includes(packSearch.text.toLowerCase()))
                     ScrollBar.vertical:ScrollBar {policy:ScrollBar.AsNeeded}
                     delegate:Rectangle {
                         required property var modelData
                         width:ListView.view.width;height:76;radius:10;color:sheet.selectedSets.includes(modelData.id)?Theme.accentSoft:Theme.raised;border.color:sheet.selectedSets.includes(modelData.id)?Theme.accent:Theme.border
-                        RowLayout {anchors.fill:parent;anchors.margins:8;spacing:10
+                        RowLayout {anchors.fill:parent;anchors.margins:8;spacing:8
                             Rectangle {Layout.preferredWidth:74;Layout.preferredHeight:58;radius:6;color:Theme.canvas;clip:true
                                 Image {anchors.fill:parent;source:modelData.preview||"";asynchronous:true;fillMode:Image.PreserveAspectFit;sourceSize.width:148}
                                 ArtIcon {anchors.centerIn:parent;visible:!modelData.preview;name:"images";tint:Theme.muted;width:24;height:24}
@@ -139,37 +139,37 @@ Drawer {
                 Text {visible:sheet.chosen.length===0&&!online.busy;Layout.fillWidth:true;text:Theme.t("Select at least one set to continue.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                 Text {Layout.fillWidth:true;text:Theme.t("3. Download options");color:Theme.text;font.pixelSize:14;font.weight:Font.Medium}
                 LobeCheckBox {objectName:"downloadWholePack";Layout.fillWidth:true;text:Theme.t("Download entire pack");checked:sheet.wholePack;enabled:!downloads.running&&online.provider!=="sketchdaily";onToggled:sheet.wholePack=checked}
-                Text {visible:online.provider==="sketchdaily";Layout.fillWidth:true;text:Theme.t("SketchDaily supplies random references. Choose how many to save.");color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+                Text {visible:online.provider==="sketchdaily";Layout.fillWidth:true;text:Theme.t("SketchDaily supplies random references. Choose how many to save.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                 RowLayout {visible:!sheet.wholePack;Layout.fillWidth:true
                     Text {Layout.fillWidth:true;text:Theme.t("Images to save per set");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                     LobeComboBox {id:count;objectName:"onlineCountPicker";Layout.preferredWidth:90;model:["5","10","20","30","50","100"];currentIndex:2;enabled:!downloads.running;Accessible.name:Theme.t("Images to save per set")}
                 }
                 Text {visible:sheet.wholePack;Layout.fillWidth:true;text:Theme.t("Save every accessible image in each selected pack. Filters still apply.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                 LobeButton {Layout.fillWidth:true;text:Theme.t("Filters and save folder");iconName:"sliders-horizontal";quiet:true;onClicked:sheet.advanced=!sheet.advanced}
-                ColumnLayout {visible:sheet.advanced;Layout.fillWidth:true;spacing:10
+                ColumnLayout {visible:sheet.advanced;Layout.fillWidth:true;spacing:8
                     Text {visible:online.provider==="proko"||online.provider==="poselibrary";Layout.fillWidth:true;text:Theme.t("This source filters by collection. Choose the appropriate sets above.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                     GridLayout {Layout.fillWidth:true;columns:2;columnSpacing:8;rowSpacing:8
                         Repeater {model:online.provider==="quickposes"?[{key:"gender",label:"Gender",values:["all","male","female"],labels:["All","Male","Female"]},{key:"clothing",label:"Clothing",values:["all","clothed","nude"],labels:["All","Clothed","Nude or partially nude"]}]:online.provider==="sketchdaily"?[{key:"gender",label:"Gender",values:["all","male","female"],labels:["All","Male","Female"]},{key:"clothing",label:"Clothing",values:["all","clothed","nude"],labels:["All","Clothed","Nude"]},{key:"pose",label:"Pose type",values:["all","action","stationary"],labels:["All","Action","Stationary"]},{key:"angle",label:"View angle",values:["all","front","side","back","above"],labels:["All","Front","Side","Back view","Above or below"]}]:[]
                             delegate:ColumnLayout {required property var modelData;Layout.fillWidth:true;Layout.preferredWidth:1;Layout.minimumWidth:0;spacing:4
-                                Text {text:Theme.t(modelData.label);color:Theme.muted;font.pixelSize:11}
+                                Text {text:Theme.t(modelData.label);color:Theme.muted;font.pixelSize:12}
                                 LobeComboBox {Layout.fillWidth:true;model:modelData.labels.map(v=>Theme.t(v));currentIndex:Math.max(0,modelData.values.indexOf(sheet[modelData.key]));enabled:!downloads.running&&sheet.filterEnabled(modelData.key);Accessible.name:Theme.t(modelData.label);onActivated:sheet[modelData.key]=modelData.values[currentIndex]}
                             }
                         }
                     }
                     LobeButton {Layout.fillWidth:true;text:Theme.t("Reset filters");quiet:true;enabled:!downloads.running;onClicked:{sheet.gender="all";sheet.clothing="all";sheet.pose="all";sheet.angle="all"}}
-                    Text {Layout.fillWidth:true;text:Theme.t("Each set is saved in its own folder.");color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
-                    Text {Layout.fillWidth:true;text:downloads.destination;color:Theme.muted;font.pixelSize:11;wrapMode:Text.WrapAnywhere}
+                    Text {Layout.fillWidth:true;text:Theme.t("Each set is saved in its own folder.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
+                    Text {Layout.fillWidth:true;text:downloads.destination;color:Theme.muted;font.pixelSize:12;wrapMode:Text.WrapAnywhere}
                     LobeButton {objectName:"downloadDestination";Layout.fillWidth:true;text:Theme.t("Change save folder");iconName:"folder-open";enabled:!downloads.running;onClicked:saveFolder.open()}
                 }
                 LobeCheckBox {Layout.fillWidth:true;implicitHeight:Math.max(32,contentItem.implicitHeight+8);text:Theme.t("Start a session after downloading");checked:sheet.startAfter;enabled:!downloads.running&&!app.active&&sheet.chosen.length===1;onToggled:sheet.startAfter=checked}
                 Text {Layout.fillWidth:true;text:Theme.t("Downloads appear in Saved sets. Start any saved set there, even after restarting GestArt.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                 Repeater {model:downloads.jobs
                     delegate:Rectangle {required property var modelData;required property int index;Layout.fillWidth:true;implicitHeight:jobBody.implicitHeight+20;radius:10;color:Theme.raised;border.color:Theme.border
-                        ColumnLayout {id:jobBody;anchors.left:parent.left;anchors.right:parent.right;anchors.top:parent.top;anchors.margins:10;spacing:6
-                            Text {Layout.fillWidth:true;text:sheet.label(modelData);color:Theme.text;font.pixelSize:13;wrapMode:Text.WordWrap}
+                        ColumnLayout {id:jobBody;anchors.left:parent.left;anchors.right:parent.right;anchors.top:parent.top;anchors.margins:12;spacing:8
+                            Text {Layout.fillWidth:true;text:sheet.label(modelData);color:Theme.text;font.pixelSize:14;wrapMode:Text.WordWrap}
                             Text {Layout.fillWidth:true;text:Theme.t(modelData.status)+" · "+modelData.completed+(modelData.target>0?" / "+modelData.target:"");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                             ProgressBar {visible:downloads.running;Layout.fillWidth:true;from:0;to:Math.max(1,modelData.target);value:modelData.completed;indeterminate:modelData.target<=0}
-                            Text {visible:!!modelData.error;Layout.fillWidth:true;text:Theme.t(modelData.error||"");color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+                            Text {visible:!!modelData.error;Layout.fillWidth:true;text:Theme.t(modelData.error||"");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                             LobeButton {visible:!downloads.running&&modelData.status!=="Completed";text:Theme.t("Retry download");iconName:"rotate-cw";onClicked:downloads.retry(index)}
                         }
                     }
@@ -181,7 +181,7 @@ Drawer {
             id:savedScroll;visible:sheet.section==="saved";Layout.fillWidth:true;Layout.fillHeight:true;clip:true;contentWidth:availableWidth
             ColumnLayout {width:savedScroll.availableWidth;spacing:12
                 RowLayout {Layout.fillWidth:true
-                    Text {Layout.fillWidth:true;text:Theme.t("Saved on this computer");color:Theme.text;font.pixelSize:15;font.weight:Font.Medium;wrapMode:Text.WordWrap}
+                    Text {Layout.fillWidth:true;text:Theme.t("Saved on this computer");color:Theme.text;font.pixelSize:16;font.weight:Font.Medium;wrapMode:Text.WordWrap}
                     IconButton {iconName:"rotate-cw";hint:Theme.t("Reload");enabled:!downloads.running;onClicked:downloads.refreshSavedSets()}
                 }
                 Text {Layout.fillWidth:true;text:Theme.t("Choose a set, adjust the timer and start. Other collections will not be included.");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
@@ -190,13 +190,13 @@ Drawer {
                 LobeButton {visible:downloads.savedSets.length===0;Layout.fillWidth:true;text:Theme.t("Download from website");primary:true;iconName:"download";onClicked:sheet.section="download"}
                 Repeater {model:downloads.savedSets
                     delegate:Rectangle {required property var modelData;required property int index;Layout.fillWidth:true;implicitHeight:savedBody.implicitHeight+24;radius:12;color:Theme.raised;border.color:Theme.border
-                        ColumnLayout {id:savedBody;anchors.left:parent.left;anchors.right:parent.right;anchors.top:parent.top;anchors.margins:12;spacing:10
+                        ColumnLayout {id:savedBody;anchors.left:parent.left;anchors.right:parent.right;anchors.top:parent.top;anchors.margins:12;spacing:8
                             RowLayout {Layout.fillWidth:true;spacing:12
                                 Image {Layout.preferredWidth:80;Layout.preferredHeight:70;source:modelData.available?modelData.preview||"":"";asynchronous:true;fillMode:Image.PreserveAspectFit}
                                 ColumnLayout {Layout.fillWidth:true;spacing:4
                                     Text {Layout.fillWidth:true;text:sheet.label(modelData);color:Theme.text;font.pixelSize:14;font.weight:Font.Medium;wrapMode:Text.WordWrap}
                                     Text {Layout.fillWidth:true;text:sheet.sourceName(modelData.provider)+" · "+Theme.count(modelData.count,"image","images_few","images");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
-                                    Text {Layout.fillWidth:true;text:Theme.t(!modelData.available?"Folder not found":modelData.partial?"Partially downloaded":modelData.fullPack?"Entire pack saved":"Saved selection");color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+                                    Text {Layout.fillWidth:true;text:Theme.t(!modelData.available?"Folder not found":modelData.partial?"Partially downloaded":modelData.fullPack?"Entire pack saved":"Saved selection");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
                                 }
                             }
                             LobeButton {visible:modelData.partial&&!!modelData.setId;Layout.fillWidth:true;text:Theme.t("Retry download");iconName:"rotate-cw";enabled:!downloads.running;onClicked:{if(downloads.resumeSaved(index))sheet.section="download"}}
@@ -212,7 +212,7 @@ Drawer {
         ColumnLayout {visible:sheet.section==="download"||downloads.running;Layout.fillWidth:true;spacing:8
             Text {visible:downloads.running;Layout.fillWidth:true;text:Theme.t(downloads.jobs.some(j=>j.status==="Loading sources")?"Loading sources":"Downloading images")+" · "+downloads.completed+(downloads.requested>0?" / "+downloads.requested:"");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
             ProgressBar {visible:downloads.running;Layout.fillWidth:true;from:0;to:Math.max(1,downloads.requested);value:downloads.completed;indeterminate:downloads.requested<=0||downloads.jobs.some(j=>j.status==="Loading sources")}
-            Text {visible:sheet.section==="download"&&!downloads.running;Layout.fillWidth:true;text:sheet.chosen.length+" · "+Theme.t("sets selected")+" · "+(sheet.wholePack?Theme.t("Entire pack"):count.currentText+" "+Theme.t("images per set"));color:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+            Text {visible:sheet.section==="download"&&!downloads.running;Layout.fillWidth:true;text:sheet.chosen.length+" · "+Theme.t("sets selected")+" · "+(sheet.wholePack?Theme.t("Entire pack"):count.currentText+" "+Theme.t("images per set"));color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
             LobeButton {objectName:"onlineImportButton";Layout.fillWidth:true;primary:!downloads.running
                 text:downloads.running?Theme.t("Stop download"):sheet.startAfter&&sheet.chosen.length===1&&!app.active?Theme.t("Download and start session"):sheet.wholePack?Theme.t("Download entire pack"):Theme.t("Download selected sets")
                 iconName:downloads.running?"x":"download";enabled:downloads.running||(!online.busy&&sheet.chosen.length>0)

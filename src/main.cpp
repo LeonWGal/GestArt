@@ -56,8 +56,10 @@ int main(int argc,char** argv){
     QGuiApplication application(argc,argv);
     QCoreApplication::setOrganizationName("LeonWGal");
     QCoreApplication::setApplicationName("GestArt Ultimate");
-    QCoreApplication::setApplicationVersion("1.8.0");
+    QCoreApplication::setApplicationVersion("1.8.5");
     QQuickStyle::setStyle("Basic");
+    QFontDatabase::addApplicationFont(":/assets/fonts/Geist.ttf");
+    QFontDatabase::addApplicationFont(":/assets/fonts/GeistMono.ttf");
     QFontDatabase::addApplicationFont(":/assets/fonts/Inter.ttf");
     QFontDatabase::addApplicationFont(":/assets/fonts/NotoSansArabic.ttf");
     QFontDatabase::addApplicationFallbackFontFamily(QChar::Script_Arabic,"Noto Sans Arabic");
@@ -72,6 +74,7 @@ int main(int argc,char** argv){
     parser.addOption({"diagnostics","Write diagnostic JSON on exit","file"});
     parser.addOption({"smoke-test","Run end-to-end session checks and exit"});
     parser.addOption({"timed-test","Check timed completion, break and restart; requires --data-dir"});
+    parser.addOption({"web-video-test","Check window video and pinning (QA; use with --web-test)"});
     parser.addOption({"web-focus-test","Check hiding/restoring website controls (QA; use with --web-test)"});
     parser.addOption({"web-test","Check a website inside the embedded browser (QA)","provider"});
     parser.addOption({"saved-flow-test","Check starting a persistent saved set with its session settings (QA)"});
@@ -198,22 +201,58 @@ int main(int argc,char** argv){
     if(parser.isSet("web-test")){
         window->hide();window->showNormal();
         if(parser.isSet("web-focus-test"))window->setPosition(QCursor::pos()+QPoint(40,40));
-        QTimer::singleShot(200,&application,[&]{QMetaObject::invokeMethod(window,"openWebsite",Q_ARG(QVariant,QVariant(parser.value("web-test"))));});
+        QTimer::singleShot(200,&application,[&]{
+            QMetaObject::invokeMethod(window,"openWebsite",Q_ARG(QVariant,QVariant(parser.value("web-test"))));
+            if(parser.isSet("size")){const auto size=parser.value("size").split('x');if(size.size()==2)window->resize(size[0].toInt(),size[1].toInt());}
+        });
         auto focusPhase=std::make_shared<int>(0);auto viewportHeight=std::make_shared<int>(0);
         auto* check=new QTimer(&application);check->setInterval(500);
         QObject::connect(check,&QTimer::timeout,&application,[&,check,focusPhase,viewportHeight]{
             const auto metrics=window->property("browserMetrics").toMap();
-            if(metrics.value("provider").toString()!=parser.value("web-test")||metrics.value("controls").toInt()<3||metrics.value("bodyLength").toInt()<100)return;
+            if(*focusPhase==0&&(metrics.value("provider").toString()!=parser.value("web-test")||metrics.value("controls").toInt()<3||metrics.value("bodyLength").toInt()<100))return;
+            if(parser.isSet("web-video-test")){
+                auto* workspace=window->findChild<QObject*>("websiteWorkspace");
+                if(*focusPhase==0){QMetaObject::invokeMethod(workspace,"prepareVideoTest");*focusPhase=1;return;}
+                const auto video=metrics.value("videoTest").toMap();
+                if(video.isEmpty())return;
+                if(!video.value("expanded").toBool()||!video.value("visible").toBool()||!video.value("playing").toBool()
+                    ||video.value("width").toInt()!=window->width()||video.value("height").toInt()!=window->height()){
+                    qWarning()<<"Window video QA failed"<<video;application.exit(194);return;
+                }
+                if(*focusPhase==1){controller.setPage("home");*focusPhase=2;return;}
+                if(*focusPhase==2){controller.setPage("web");*focusPhase=3;return;}
+                if(workspace!=window->findChild<QObject*>("websiteWorkspace")){application.exit(195);return;}
+                const auto geometry=window->geometry();controller.togglePin();
+#ifdef Q_OS_WIN
+                const bool pinned=GetWindowLongPtr(reinterpret_cast<HWND>(window->winId()),GWL_EXSTYLE)&WS_EX_TOPMOST;
+#else
+                const bool pinned=window->flags().testFlag(Qt::WindowStaysOnTopHint);
+#endif
+                const bool stable=window->geometry()==geometry;controller.togglePin();
+                if(!pinned||!stable){application.exit(196);return;}
+                qInfo("Window video QA: video fills viewport, plays, survives menu return; pin preserves geometry");
+            }
             if(parser.isSet("web-focus-test")){
-                if(*focusPhase==0){QMetaObject::invokeMethod(window,"prepareWebFocusTest");*focusPhase=1;return;}
+                if(*focusPhase==0){QMetaObject::invokeMethod(window,"prepareWebFocusTest");QTest::mouseMove(window,QPoint(20,window->height()-4));*focusPhase=1;return;}
                 if(*focusPhase==1){if(auto* page=window->findChild<QQuickItem*>("embeddedWebsite"))*viewportHeight=qRound(page->height());QEvent leave(QEvent::Leave);QCoreApplication::sendEvent(window,&leave);QMetaObject::invokeMethod(window,"inspectWebFocusTest");*focusPhase=2;return;}
                 if(*focusPhase==2){
-                    if(!metrics.value("focusHidden").toBool()||!metrics.value("focusImage").toBool()||metrics.value("chromeVisible").toBool()){qWarning()<<"Web focus did not hide controls and preserve image"<<metrics;application.exit(187);return;}
-                    if(metrics.value("viewportTop").toInt()!=0||metrics.value("viewportHeight").toInt()!=metrics.value("workspaceHeight").toInt()||metrics.value("viewportHeight").toInt()<=*viewportHeight){qWarning("Web focus left an empty header area");application.exit(191);return;}
-                    QEnterEvent enter(QPointF(10,10),QPointF(10,10),QPointF(10,10));QCoreApplication::sendEvent(window,&enter);QMetaObject::invokeMethod(window,"inspectWebFocusTest");*focusPhase=3;return;
+                    if(metrics.value("chromeOpacity").toDouble()>0.01||metrics.value("chromeVisible").toBool()){qWarning()<<"Web chrome did not fade out"<<metrics;application.exit(187);return;}
+                    if(metrics.value("viewportTop").toInt()!=0||metrics.value("viewportHeight").toInt()!=metrics.value("workspaceHeight").toInt()||metrics.value("viewportHeight").toInt()!=*viewportHeight){qWarning("Web viewport changed while hiding chrome");application.exit(191);return;}
+                    QEnterEvent enter(QPointF(10,10),QPointF(10,10),QPointF(10,10));QCoreApplication::sendEvent(window,&enter);QTest::mouseMove(window,QPoint(window->width()/2,window->height()/2));QMetaObject::invokeMethod(window,"inspectWebFocusTest");*focusPhase=3;return;
                 }
-                if(metrics.value("focusHidden").toBool()||!metrics.value("chromeVisible").toBool()||metrics.value("viewportHeight").toInt()!=*viewportHeight){qWarning("Web focus did not restore controls/viewport");application.exit(188);return;}
-                qInfo("Web focus QA: header space reclaimed, viewport expanded/restored, image preserved");
+                if(metrics.value("chromeOpacity").toDouble()>0.01||metrics.value("chromeVisible").toBool()||metrics.value("viewportHeight").toInt()!=window->height()){QFile failure(directory+"/web-controls-failure.json");if(failure.open(QIODevice::WriteOnly))failure.write(QJsonDocument::fromVariant(QVariantMap{{"phase",*focusPhase},{"metrics",metrics},{"height",window->height()}}).toJson());qWarning("Web controls reopened without an explicit request");application.exit(188);return;}
+                if(*focusPhase==3||*focusPhase==4){
+                    QMetaObject::invokeMethod(window->findChild<QObject*>("websiteWorkspace"),"prepareResizeTest");
+                    window->resize(*focusPhase==3?760:360,*focusPhase==3?600:900);
+                    QMetaObject::invokeMethod(window,"inspectWebFocusTest");++*focusPhase;return;
+                }
+                if(metrics.value("chromeHeight").toInt()>38){application.exit(197);return;}
+                qInfo("Web focus QA: no automatic controls on cursor return or resize; search and menus collapse; toolbar height <=38");
+            }
+            if(parser.isSet("web-focus-test")||parser.isSet("web-video-test")){
+                auto* handle=window->findChild<QQuickItem*>("websiteShowControls");
+                auto* panel=window->findChild<QQuickItem*>("websiteControlsPanel");
+                if(!handle||!panel||qRound(handle->width())!=28||qRound(handle->height())!=28||panel->height()>38){application.exit(198);return;}
             }
             check->stop();qInfo().noquote()<<"Website QA:"<<metrics.value("provider").toString()<<metrics.value("title").toString()<<"controls"<<metrics.value("controls").toInt();
             if(parser.isSet("capture"))window->grabWindow().save(parser.value("capture"));

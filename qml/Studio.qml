@@ -111,7 +111,7 @@ Item {
             Rectangle {Layout.alignment:Qt.AlignHCenter;width:72;height:72;radius:24;color:Theme.raised;border.color:Theme.border
                 ArtIcon {anchors.centerIn:parent;name:"scan-eye";width:32;height:32;tint:Theme.accent}
             }
-            Text {text:Theme.t("Make time to draw");color:Theme.text;font.pixelSize:root.compact?20:28;font.weight:Font.DemiBold;Layout.fillWidth:true;horizontalAlignment:Text.AlignHCenter;wrapMode:Text.WordWrap}
+            Text {text:Theme.t("Make time to draw");color:Theme.text;font.pixelSize:root.compact?20:30;font.weight:Font.DemiBold;Layout.fillWidth:true;horizontalAlignment:Text.AlignHCenter;wrapMode:Text.WordWrap}
             Text {text:Theme.t("Choose your references. Set a rhythm.\nFocus on what you see.");color:Theme.muted;font.pixelSize:14;lineHeight:1.4;Layout.fillWidth:true;horizontalAlignment:Text.AlignHCenter;wrapMode:Text.WordWrap}
             RowLayout {Layout.alignment:Qt.AlignHCenter;Layout.topMargin:8;spacing:8
                 LobeButton {primary:true;text:Theme.t("Select folder");iconName:"folder-plus";onClicked:root.addFolder()}
@@ -181,11 +181,11 @@ Item {
             ToolTip.text:Theme.t(app.paused?"Pause":app.state==="break"?"Break":"Session")
             TextMetrics {id:timeMeasure;font:timeDigits.font;text:"00:00"}
             TextMetrics {id:countMeasure;font:countDigits.font;text:app.sessionLimit===0?"#000":app.sessionLimit+" / "+app.sessionLimit}
-            Row {id:timerRow;objectName:"sessionTimerContent";anchors.centerIn:parent;spacing:10
+            Row {id:timerRow;objectName:"sessionTimerContent";anchors.centerIn:parent;spacing:8
                 ArtIcon {name:app.paused?"pause":"timer";width:14;height:14;anchors.verticalCenter:parent.verticalCenter;tint:Theme.accent}
-                Text {id:timeDigits;objectName:"sessionTimeDigits";text:app.timerText;width:Math.max(timeMeasure.width,implicitWidth);horizontalAlignment:Text.AlignHCenter;font.pixelSize:18;font.family:"Consolas";font.weight:Font.Medium;color:Theme.text;anchors.verticalCenter:parent.verticalCenter}
+                Text {id:timeDigits;objectName:"sessionTimeDigits";text:app.timerText;width:Math.max(timeMeasure.width,implicitWidth);horizontalAlignment:Text.AlignHCenter;font.pixelSize:18;font.family:Theme.fontMono;font.weight:Font.Medium;color:Theme.text;anchors.verticalCenter:parent.verticalCenter}
                 Rectangle {width:1;height:14;color:Theme.border;anchors.verticalCenter:parent.verticalCenter}
-                Text {id:countDigits;objectName:"sessionCountDigits";text:app.sessionLimit===0?"#"+app.ordinal:app.ordinal+" / "+app.sessionLimit;width:Math.max(30,countMeasure.width,implicitWidth);horizontalAlignment:Text.AlignHCenter;color:Theme.muted;font.pixelSize:12;font.family:"Consolas";anchors.verticalCenter:parent.verticalCenter}
+                Text {id:countDigits;objectName:"sessionCountDigits";text:app.sessionLimit===0?"#"+app.ordinal:app.ordinal+" / "+app.sessionLimit;width:Math.max(30,countMeasure.width,implicitWidth);horizontalAlignment:Text.AlignHCenter;color:Theme.muted;font.pixelSize:12;font.family:Theme.fontMono;anchors.verticalCenter:parent.verticalCenter}
             }
         }
 

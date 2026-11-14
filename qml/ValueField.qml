@@ -13,7 +13,7 @@ ColumnLayout {
     signal edited(int amount,bool noLimit)
     spacing:4
     RowLayout {Layout.fillWidth:true;spacing:12
-        Text {text:root.label;color:Theme.text;font.pixelSize:13;Layout.fillWidth:true;wrapMode:Text.WordWrap}
+        Text {text:root.label;color:Theme.text;font.pixelSize:14;Layout.fillWidth:true;wrapMode:Text.WordWrap}
         Text {visible:root.unlimited;text:"∞";color:Theme.muted;font.pixelSize:20;Layout.preferredWidth:112;horizontalAlignment:Text.AlignHCenter}
         SpinBox {
             id:spin;Accessible.name:root.label

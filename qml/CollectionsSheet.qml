@@ -19,7 +19,7 @@ Drawer {
         }
         CollectionList {Layout.fillWidth:true;Layout.fillHeight:true}
         RowLayout {visible:app.canUndoCollectionRemoval&&sheet.height>=320;Layout.fillWidth:true
-            Text {text:Theme.t("Files stay on disk");color:Theme.muted;font.pixelSize:11;Layout.fillWidth:true;elide:Text.ElideRight}
+            Text {text:Theme.t("Files stay on disk");color:Theme.muted;font.pixelSize:12;Layout.fillWidth:true;elide:Text.ElideRight}
             LobeButton {text:Theme.t("Undo");quiet:true;implicitHeight:28;onClicked:app.undoCollectionRemoval()}
         }
         RowLayout {Layout.fillWidth:true;spacing:8

@@ -476,7 +476,7 @@ void Controller::updateClock(){
 }
 void Controller::openSettings(){session_.pauseForSettings(now());stopSounds();emit sessionChanged();emit settingsRequested();}
 void Controller::closeSettings(){session_.resumeFromSettings(now());emit sessionChanged();}
-void Controller::applySettings(const QVariantMap& values){
+void Controller::applySettings(const QVariantMap& values, bool silent){
     const auto oldGoalMinutes=settings_.value("daily_goal_minutes"),oldGoalStudies=settings_.value("daily_goal_studies"),oldGoalMode=settings_.value("daily_goal_mode");
     for(auto it=settings_.begin();it!=settings_.end();++it)if(values.contains(it.key()) && it.key()!="source" && it.key()!="recent_sources" && it.key()!="collections" && it.key()!="collections_initialized")it.value()=values.value(it.key());
     settings_["display_time"]=std::clamp(settings_["display_time"].toInt(),1,86400);
@@ -493,7 +493,7 @@ void Controller::applySettings(const QVariantMap& values){
     updateWindowPin();
     persist();emit settingsChanged();
     if(oldGoalMinutes!=settings_.value("daily_goal_minutes")||oldGoalStudies!=settings_.value("daily_goal_studies")||oldGoalMode!=settings_.value("daily_goal_mode"))requestAnalytics();
-    notify(i18n_->s("Settings saved"));
+    if(!silent) notify(i18n_->s("Settings saved"));
 }
 void Controller::setSearch(const QString& query){filter_.setFilterFixedString(query);}
 void Controller::setEffect(const QString& effect){

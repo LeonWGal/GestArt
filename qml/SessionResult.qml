@@ -49,7 +49,7 @@ Item {
                 Text {text:Theme.t("Next session");color:Theme.text;font.pixelSize:14;font.weight:Font.Medium}
                 SessionSetup {namePrefix:"result";Layout.fillWidth:true;compact:root.shortView;showDuration:false;onManageCollections:root.manageCollections()}
                 ActivityStrip {Layout.fillWidth:true}
-                Text {Layout.fillWidth:true;text:Theme.t(!app.settings.save_history?"Practice history is off":app.historyHealthy?"Saved to Practice":"History needs attention");color:app.settings.save_history&&!app.historyHealthy?Theme.danger:Theme.muted;font.pixelSize:11;wrapMode:Text.WordWrap}
+                Text {Layout.fillWidth:true;text:Theme.t(!app.settings.save_history?"Practice history is off":app.historyHealthy?"Saved to Practice":"History needs attention");color:app.settings.save_history&&!app.historyHealthy?Theme.danger:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap}
             }
         }
     }

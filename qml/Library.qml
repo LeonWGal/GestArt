@@ -14,7 +14,7 @@ Item {
     property bool completedOnly:false
     ColumnLayout {anchors.fill:parent;anchors.margins:root.small?16:24;spacing:12
         RowLayout {Layout.fillWidth:true;spacing:8
-            Text {Layout.fillWidth:true;text:Theme.count(app.imageCount,"image","images_few","images");color:Theme.muted;font.pixelSize:13;elide:Text.ElideRight}
+            Text {Layout.fillWidth:true;text:Theme.count(app.imageCount,"image","images_few","images");color:Theme.muted;font.pixelSize:12;elide:Text.ElideRight}
             IconButton {objectName:"libraryOnlineSources";width:32;height:32;iconName:"globe";hint:Theme.t("Online viewing");onClicked:root.onlineSources()}
             IconButton {objectName:"libraryDownloader";width:32;height:32;iconName:"download";hint:Theme.t("Download references");onClicked:root.downloader()}
             LobeButton {text:root.width<420?Theme.t("Add"):Theme.t("Add folder");iconName:"folder-plus";font.pixelSize:12;implicitHeight:32;onClicked:root.addFolder()}
@@ -56,7 +56,7 @@ Item {
                 delegate:Item {required property string mediaPath;required property string mediaName;required property string mediaSource;required property bool mediaCompleted
                     width:grid.cellWidth;height:grid.cellHeight
                     Rectangle {anchors.fill:parent;anchors.rightMargin:8;anchors.bottomMargin:8;radius:12;color:tile.hovered?Theme.hover:Theme.raised;border.width:activeFocus?2:1;border.color:activeFocus?Theme.accent:tile.hovered?Theme.muted:Theme.border
-                        Image {id:thumbnail;anchors.fill:parent;anchors.margins:8;anchors.bottomMargin:36;source:mediaSource;asynchronous:true;cache:false;sourceSize:Qt.size(360,300);fillMode:Image.PreserveAspectFit}
+                        Image {id:thumbnail;anchors.fill:parent;anchors.margins:8;anchors.bottomMargin:32;source:mediaSource;asynchronous:true;cache:false;sourceSize:Qt.size(360,300);fillMode:Image.PreserveAspectFit}
                         Text {visible:thumbnail.status===Image.Error;anchors.centerIn:thumbnail;width:parent.width-24;text:Theme.t("Could not load image");color:Theme.muted;font.pixelSize:12;wrapMode:Text.WordWrap;horizontalAlignment:Text.AlignHCenter}
                         Text {anchors.left:parent.left;anchors.right:parent.right;anchors.bottom:parent.bottom;anchors.margins:12;text:mediaName;color:Theme.text;font.pixelSize:12;elide:Text.ElideMiddle}
                         Rectangle {visible:mediaCompleted;anchors.right:parent.right;anchors.top:parent.top;anchors.margins:12;width:24;height:24;radius:8;color:Theme.accent

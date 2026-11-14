@@ -57,6 +57,10 @@ QUrl OnlineSources::website(const QString& id){
     if(id=="proko")return QUrl("https://www.proko.com/timer");
     if(id=="poselibrary")return QUrl("https://poselibrary.com/");
     if(id=="sketchdaily")return QUrl("https://www.sketchdaily.net/en");
+    if(id=="youtube")return QUrl("https://www.youtube.com/");
+    if(id=="youtube-gesdrawparty")return QUrl("https://www.youtube.com/@GESDRAWPARTY");
+    if(id=="youtube-playlist-1")return QUrl("https://www.youtube.com/playlist?list=PL7EWYwaF6E-FZ8JiBlz2tF1DQUCw-GCmn");
+    if(id=="youtube-playlist-2")return QUrl("https://www.youtube.com/playlist?list=PL7EWYwaF6E-Exv72kVT4yYJM2lX-Xf66I");
     return {};
 }
 bool OnlineSources::allowedUrl(const QUrl& url){
